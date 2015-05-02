@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <title>HAProxy packages for Debian and Ubuntu</title>
+        <link rel="stylesheet" href="haproxy.css">
+        <script src="angular.js"></script>
+        <script src="haproxy.js"></script>
+    </head>
+    <body ng-app="haproxy" ng-controller="InstructionsCtrl" ng-cloak>
+        <h1>Debian/Ubuntu HAProxy packages</h1>
+        <p>
+            The Debian HAProxy packaging team provides various versions of
+            <a href="http://www.haproxy.org">HAProxy</a> packages for use on different Debian or Ubuntu
+            systems. The following wizard helps you to find the package
+            suitable for your system.
+        </p>
+        <blockquote>
+            I am running
+            <select ng-options="name as name for (name, dist) in distributions"
+                    ng-model="selected.distribution">
+        </option>
+            </select>
+            <select ng-options="release as name for (release, name) in distributions[selected.distribution]"
+                    ng-model="selected.release">
+            </select>
+            and I want to install <i>HAProxy</i> version
+            <select ng-options="version for version in versions"
+                    ng-model="selected.version">
+            </select>.
+        </blockquote>
+
+        <div ng-repeat="solution in solutions() track by solution.id">
+            <h2 ng-if="$first">Instructions</h2>
+            <h2 ng-if="!$first">Alternative instructions</h2>
+
+            <!-- Official repository -->
+            <div ng-show="solution['distribution'] == 'official'">
+                <p>You can install it with the following commands:</p>
+                <pre>
+$ apt-get update
+$ apt-get install haproxy
+                </pre>
+            </div>
+
+            <!-- Debian Backports -->
+            <div ng-show="solution['distribution'].indexOf('backports') == 0">
+                <p>
+                    You need to enable the <a href="http://backports.debian.org/Instructions/">backports repository</a>.
+                    This can be done by adding a new file <code>backports.list</code> in <code>/etc/apt/sources.list.d/</code> with
+                    the following content:
+                </p>
+                <pre>
+deb http://cdn.debian.net/debian {{ selected.release }}-{{ solution['distribution'] }} main
+                </pre>
+                <p>
+                    Then, use the following commands:
+                </p>
+                <pre>
+$ apt-get update
+$ apt-get install haproxy -t {{ selected.release }}-{{ solution['distribution'] }}
+                </pre>
+            </div>
+
+            <!-- Not available -->
+            <div ng-show="solution['distribution'] == 'unavailable'">
+                <p>Sorry, there is no option available for you.</p>
+            </div>
+
+            <!-- Ubuntu PPA -->
+            <div ng-show="solution['distribution'] == 'ppa'">
+                <p>
+                    You need to enable a <a href="https://launchpad.net/~vbernat/+archive/haproxy-{{ selected.version }}">dedicated
+                    PPA</a> with the following command:
+                </p>
+                <pre>
+$ add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}
+                </pre>
+                <p>
+                    Then, use the following commands:
+                </p>
+                <pre>
+$ apt-get update
+$ apt-get install haproxy
+                </pre>
+            </div>
+
+            <!-- Stable or latest? -->
+            <p ng-show="solution['version'] == 'latest'">
+                You will get the <em>latest</em> release of HAProxy {{ selected.release }}.
+            </p>
+            <p ng-show="solution['version'] == 'stable'">
+                You will get a <em>stable</em> release of HAProxy {{
+                selected.release }}. This means you may not get the
+                latest version but important fixes from later versions
+                are included.
+            </p>
+            
+        </div>
+    </body>
+</html>
