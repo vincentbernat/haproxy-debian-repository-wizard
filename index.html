@@ -45,15 +45,21 @@ $ apt-get install haproxy
                 </pre>
             </div>
 
-            <!-- Debian Backports -->
-            <div ng-show="solution['distribution'].indexOf('backports') == 0">
+            <!-- Backports -->
+            <div ng-show="solution['distribution'].indexOf('backports') == 0"
+                 ng-switch="selected.distribution">
                 <p>
-                    You need to enable the <a href="http://backports.debian.org/Instructions/">backports repository</a>.
+                    You need to enable the
+                    <a ng-switch-when="Debian" href="http://backports.debian.org/Instructions/">backports repository</a>
+                    <a ng-switch-when="Ubuntu" href="https://help.ubuntu.com/community/UbuntuBackports">backports repository</a>.
                     This can be done by adding a new file <code>backports.list</code> in <code>/etc/apt/sources.list.d/</code> with
                     the following content:
                 </p>
-                <pre>
+                <pre ng-switch-when="Debian">
 deb http://cdn.debian.net/debian {{ selected.release }}-{{ solution['distribution'] }} main
+                </pre>
+                <pre ng-switch-when="Ubuntu">
+deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution['distribution'] }} main universe
                 </pre>
                 <p>
                     Then, use the following commands:
