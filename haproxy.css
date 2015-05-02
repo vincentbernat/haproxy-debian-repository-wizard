@@ -1,8 +1,20 @@
 html {
-    width: 30em;
-    margin: 0 auto;
     font-size: 22px;
     line-height: 35px;
+}
+article {
+    max-width: 30em;
+    margin: 0 auto;
+}
+address {
+    position: fixed;
+    right: 1em;
+    bottom: 0;
+    width: 15em;
+    margin-top: 2em;
+    font-size: small;
+    text-align: right;
+    color: gray;
 }
 
 /* Headers */

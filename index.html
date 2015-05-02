@@ -9,7 +9,9 @@
         <script src="angular.js"></script>
         <script src="haproxy.js"></script>
     </head>
-    <body ng-app="haproxy" ng-controller="InstructionsCtrl" ng-cloak>
+    <body>
+        <article class="app" ng-app="haproxy" ng-controller="InstructionsCtrl" ng-cloak>
+
         <h1>Debian/Ubuntu HAProxy packages</h1>
         <p>
             The Debian HAProxy packaging team provides various versions of
@@ -105,5 +107,11 @@ $ apt-get install haproxy
             </p>
             
         </div>
+
+        </article>
+
+        <address>
+            Source code available on <a href="https://github.com/vincentbernat/haproxy-debian-repository-wizard">GitHub</a>
+        </address>
     </body>
 </html>
