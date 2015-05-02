@@ -42,7 +42,7 @@ angular.module('haproxy', [])
           , solutions = (proposed || 'unavailable').split('|')
           , current = solutions.map(function(solution) {
             return {version: { '+': 'latest', '-': 'stable'}[solution.slice(-1)] || null,
-                    distribution: solution.slice(0, -1),
+                    distribution: solution.replace(/\+|\-$/, ''),
                     id: solution};
           });
         if (JSON.stringify(previous) === JSON.stringify(current)) {
