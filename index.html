@@ -95,11 +95,11 @@ $ apt-get install haproxy
 
             <!-- Stable or latest? -->
             <p ng-show="solution['version'] == 'latest'">
-                You will get the <em>latest</em> release of HAProxy {{ selected.release }}.
+                You will get the <em>latest</em> release of HAProxy {{ selected.version }}.
             </p>
             <p ng-show="solution['version'] == 'stable'">
                 You will get a <em>stable</em> release of HAProxy {{
-                selected.release }}. This means you may not get the
+                selected.version }}. This means you may not get the
                 latest version but important fixes from later versions
                 are included.
             </p>
