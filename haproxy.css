@@ -1,9 +1,9 @@
 html {
-    font-size: 22px;
-    line-height: 35px;
+    font-size: 20px;
+    line-height: 32px;
 }
 article {
-    max-width: 30em;
+    max-width: 40em;
     margin: 0 auto;
 }
 address {
@@ -60,7 +60,14 @@ select {
 
 /* Code blocks */
 pre {
-    margin-left: 2em;
+    margin-left: -2em;
+    overflow-y: auto;
+    max-width: 44em;
+}
+@media (max-width: 880px) {
+    pre {
+        margin-left: 0;
+    }
 }
 code {
     padding: 0 0.2em;
