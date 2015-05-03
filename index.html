@@ -40,7 +40,7 @@
             <h2 ng-if="!solution.version && !$first">Alternative instructions</h2>
 
             <!-- Official repository -->
-            <div ng-show="solution['distribution'] == 'official'">
+            <div ng-show="solution.distribution == 'official'">
                 <p>You can install it with the following commands:</p>
                 <pre>
 $ apt-get update
@@ -49,7 +49,7 @@ $ apt-get install haproxy
             </div>
 
             <!-- Backports -->
-            <div ng-show="solution['distribution'].indexOf('backports') == 0"
+            <div ng-show="solution.distribution.indexOf('backports') == 0"
                  ng-switch="selected.distribution">
                 <p>
                     You need to enable the
@@ -60,31 +60,31 @@ $ apt-get install haproxy
                 </p>
                 <div ng-switch-when="Debian">
                     <pre ng-show="selected.release.indexOf('squeeze') != 0">
-deb http://http.debian.net/debian {{ selected.release }}-{{ solution['distribution'] }} main
+deb http://http.debian.net/debian {{ selected.release }}-{{ solution.distribution }} main
                     </pre>
                     <pre ng-show="selected.release.indexOf('squeeze') == 0">
-deb http://backports.debian.org/debian-backports {{ selected.release }}-{{ solution['distribution'] }} main
+deb http://backports.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main
                     </pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution['distribution'] }} main universe
+deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe
                 </pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
 $ apt-get update
-$ apt-get install haproxy -t {{ selected.release }}-{{ solution['distribution'] }}
+$ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}
                 </pre>
             </div>
 
             <!-- Not available -->
-            <div ng-show="solution['distribution'] == 'unavailable'">
+            <div ng-show="solution.distribution == 'unavailable'">
                 <p>Sorry, there is no option available for you.</p>
             </div>
 
             <!-- Ubuntu PPA -->
-            <div ng-show="solution['distribution'] == 'ppa'">
+            <div ng-show="solution.distribution == 'ppa'">
                 <p>
                     You need to enable a <a href="https://launchpad.net/~vbernat/+archive/haproxy-{{ selected.version }}">dedicated
                     PPA</a> with the following command:
@@ -102,10 +102,10 @@ $ apt-get install haproxy
             </div>
 
             <!-- Stable or latest? -->
-            <p ng-show="solution['version'] == 'latest'">
+            <p ng-show="solution.version == 'latest'">
                 You will get the <em>latest</em> release of HAProxy {{ selected.version }}.
             </p>
-            <p ng-show="solution['version'] == 'stable'">
+            <p ng-show="solution.version == 'stable'">
                 You will get a <em>stable</em> release of HAProxy {{
                 selected.version }}. This means you may not get the
                 latest version but important fixes from later versions
