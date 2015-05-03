@@ -22,6 +22,7 @@
         <blockquote>
             I am running
             <select ng-options="name as name for (name, dist) in distributions"
+                    ng-change="selected.release = null"
                     ng-model="selected.distribution">
         </option>
             </select>
