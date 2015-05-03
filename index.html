@@ -59,9 +59,9 @@ $ apt-get install haproxy</pre>
                 </p>
                 <div ng-switch-when="Debian">
                     <pre ng-show="selected.release.indexOf('squeeze') != 0">
-deb http://http.debian.net/debian {{ selected.release }}-{{ solution.distribution }} main</pre>
+deb http://httpredir.debian.org/debian {{ selected.release }}-{{ solution.distribution }} main</pre>
                     <pre ng-show="selected.release.indexOf('squeeze') == 0">
-deb http://http.debian.net/debian-backports {{ selected.release }}-{{ solution.distribution }} main</pre>
+deb http://httpredir.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
 deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe</pre>
