@@ -97,7 +97,17 @@ $ apt-get install haproxy</pre>
             <!-- Debian haproxy.debian.net -->
             <div ng-show="solution.distribution == 'hdn'">
                 <p>
-                    You need to enable a dedicated repository:
+                    You need to enable the
+                    <a href="http://backports.debian.org/Instructions/">backports repository</a>.
+                    This can be done by adding a new file <code>backports.list</code> in <code>/etc/apt/sources.list.d/</code> with
+                    the following content:
+                </p>
+                <pre ng-show="selected.release.indexOf('squeeze') != 0">
+deb http://httpredir.debian.org/debian {{ selected.release }}-backports main</pre>
+                <pre ng-show="selected.release.indexOf('squeeze') == 0">
+deb http://httpredir.debian.org/debian-backports {{ selected.release }}-backports main</pre>
+                <p>
+                    You also need to enable a dedicated repository:
                 </p>
                 <pre>
 $ curl http://haproxy.debian.net/bernat.debian.org.gpg | \
