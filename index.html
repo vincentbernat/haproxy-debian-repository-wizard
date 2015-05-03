@@ -35,7 +35,7 @@
         </blockquote>
 
         <div ng-repeat="solution in solutions() track by solution.id">
-            <h2 ng-if="solution.version">Instructions to install a {{solution.version}} release</h2>
+            <h2 ng-if="solution.version">Instructions for {{solution.version}} release</h2>
             <h2 ng-if="!solution.version && $first">Instructions</h2>
             <h2 ng-if="!solution.version && !$first">Alternative instructions</h2>
 
