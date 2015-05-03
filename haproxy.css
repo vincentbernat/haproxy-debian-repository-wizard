@@ -60,19 +60,24 @@ select {
 
 /* Code blocks */
 pre {
+    box-sizing: border-box;
     margin-left: -2em;
-    overflow-y: auto;
+    padding: 0 1em;
     max-width: 44em;
+    overflow-y: auto;
+    background-color: #eee;
 }
 @media (max-width: 880px) {
     pre {
         margin-left: 0;
+        padding: 0 0.2em;
+        width: 100%;
     }
 }
 code {
     padding: 0 0.2em;
     word-wrap: break-word;
-    background-color: #ddd;
+    background-color: #eee;
 }
 
 /* Links */
