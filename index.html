@@ -44,8 +44,7 @@
                 <p>You can install it with the following commands:</p>
                 <pre>
 $ apt-get update
-$ apt-get install haproxy
-                </pre>
+$ apt-get install haproxy</pre>
             </div>
 
             <!-- Backports -->
@@ -60,22 +59,18 @@ $ apt-get install haproxy
                 </p>
                 <div ng-switch-when="Debian">
                     <pre ng-show="selected.release.indexOf('squeeze') != 0">
-deb http://http.debian.net/debian {{ selected.release }}-{{ solution.distribution }} main
-                    </pre>
+deb http://http.debian.net/debian {{ selected.release }}-{{ solution.distribution }} main</pre>
                     <pre ng-show="selected.release.indexOf('squeeze') == 0">
-deb http://backports.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main
-                    </pre>
+deb http://backports.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe
-                </pre>
+deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe</pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
 $ apt-get update
-$ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}
-                </pre>
+$ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}</pre>
             </div>
 
             <!-- Not available -->
@@ -90,15 +85,13 @@ $ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}
                     PPA</a> with the following command:
                 </p>
                 <pre>
-$ add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}
-                </pre>
+$ add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}</pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
 $ apt-get update
-$ apt-get install haproxy
-                </pre>
+$ apt-get install haproxy</pre>
             </div>
 
             <!-- Stable or latest? -->
