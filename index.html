@@ -53,18 +53,19 @@ $ apt-get install haproxy</pre>
                 <p>
                     You need to enable the
                     <a ng-switch-when="Debian" href="http://backports.debian.org/Instructions/">backports repository</a>
-                    <a ng-switch-when="Ubuntu" href="https://help.ubuntu.com/community/UbuntuBackports">backports repository</a>.
-                    This can be done by adding a new file <code>backports.list</code> in <code>/etc/apt/sources.list.d/</code> with
-                    the following content:
+                    <a ng-switch-when="Ubuntu" href="https://help.ubuntu.com/community/UbuntuBackports">backports repository</a>:
                 </p>
                 <div ng-switch-when="Debian">
                     <pre ng-show="selected.release.indexOf('squeeze') != 0">
-deb http://httpredir.debian.org/debian {{ selected.release }}-{{ solution.distribution }} main</pre>
+$ echo deb http://httpredir.debian.org/debian {{ selected.release }}-{{ solution.distribution }} main | \
+      sudo tee /etc/apt/sources.list.d/backports.list</pre>
                     <pre ng-show="selected.release.indexOf('squeeze') == 0">
-deb http://httpredir.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main</pre>
+$ echo deb http://httpredir.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main | \
+      sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe</pre>
+$ echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
+      sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
@@ -97,17 +98,17 @@ $ apt-get install haproxy</pre>
             <!-- Debian haproxy.debian.net "PPA" -->
             <div ng-show="solution.distribution == 'hdn'">
                 <p>
-                    You need to enable the
-                    <a href="http://backports.debian.org/Instructions/">backports repository</a>.
-                    This can be done by adding a new file <code>backports.list</code> in <code>/etc/apt/sources.list.d/</code> with
-                    the following content:
+                    First, you need to enable the
+                    <a href="http://backports.debian.org/Instructions/">backports repository</a>:
                 </p>
                 <pre ng-show="selected.release.indexOf('squeeze') != 0">
-deb http://httpredir.debian.org/debian {{ selected.release }}-backports main</pre>
+$ echo deb http://httpredir.debian.org/debian {{ selected.release }}-backports main | \
+      sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 <pre ng-show="selected.release.indexOf('squeeze') == 0">
-deb http://httpredir.debian.org/debian-backports {{ selected.release }}-backports main</pre>
+$ echo deb http://httpredir.debian.org/debian-backports {{ selected.release }}-backports main | \
+      sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
-                    You also need to enable a dedicated repository:
+                    Then, you need to enable a dedicated repository:
                 </p>
                 <pre>
 $ curl http://haproxy.debian.net/bernat.debian.org.gpg | \
