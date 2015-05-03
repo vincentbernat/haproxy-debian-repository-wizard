@@ -19,9 +19,9 @@ angular.module('haproxy', [])
     ];
     // + means latest version, - means a stable version
     var matrix = {
-      squeeze: { '1.5': 'backports-sloppy-' },
-      wheezy: { '1.5': 'backports-' },
-      jessie: { '1.5': 'official-' },
+      squeeze: { '1.4': 'hdn+', '1.5': 'backports-sloppy-' },
+      wheezy: { '1.4': 'hdn+', '1.5': 'backports-' },
+      jessie: { '1.4': 'hdn+', '1.5': 'official-' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
       trusty: { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' }
     };

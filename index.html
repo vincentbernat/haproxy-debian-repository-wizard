@@ -94,6 +94,25 @@ $ apt-get update
 $ apt-get install haproxy</pre>
             </div>
 
+            <!-- Debian haproxy.debian.net -->
+            <div ng-show="solution.distribution == 'hdn'">
+                <p>
+                    You need to enable a dedicated repository:
+                </p>
+                <pre>
+$ curl http://haproxy.debian.net/bernat.debian.org.gpg | \
+      sudo apt-key add -
+$ echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main | \
+      sudo tee /etc/apt/sources.list.d/haproxy.list
+EOF</pre>
+                <p>
+                    Then, use the following commands:
+                </p>
+                <pre>
+$ apt-get update
+$ apt-get install haproxy -t {{ selected.release }}-backports-{{ selected.version }}</pre>
+            </div>
+
             <!-- Stable or latest? -->
             <p ng-show="solution.version == 'latest'">
                 You will get the <em>latest</em> release of HAProxy {{ selected.version }}.
@@ -104,7 +123,7 @@ $ apt-get install haproxy</pre>
                 latest version but important fixes from later versions
                 are included.
             </p>
-            
+
         </div>
 
         </article>
