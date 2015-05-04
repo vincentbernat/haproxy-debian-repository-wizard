@@ -19,11 +19,11 @@ angular.module('haproxy', [])
     ];
     // + means latest version, - means a stable version
     var matrix = {
-      squeeze: { '1.4': 'hdn+', '1.5': 'backports-sloppy-|hdn+' },
-      wheezy: { '1.4': 'hdn+', '1.5': 'backports-|hdn+' },
-      jessie: { '1.4': 'hdn+', '1.5': 'official-' },
+      squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
+      wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|hdn+' },
+      jessie:  { '1.4': 'hdn+',           '1.5': 'official-' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
-      trusty: { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' }
+      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' }
     };
 
     $scope.selected = {};
