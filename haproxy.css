@@ -63,6 +63,7 @@ select {
 pre {
     box-sizing: border-box;
     margin-left: -2em;
+    margin-right: -2em;
     padding: 0.3em 1em;
     max-width: 44em;
     overflow-y: auto;
@@ -75,6 +76,7 @@ pre {
 @media (max-width: 880px) {
     pre {
         margin-left: 0;
+        margin-right: 0;
         padding: 0 0.2em;
         width: 100%;
     }
