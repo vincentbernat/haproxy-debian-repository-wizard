@@ -60,17 +60,16 @@ select {
 }
 
 /* Code blocks */
-pre, code {
-    color: #f8f8f8;
-    font-family: Consolas, Moncao, Courier, monospace;
-    background-color: #333;
-}
 pre {
     box-sizing: border-box;
     margin-left: -2em;
-    padding: 0 1em;
+    padding: 0.3em 1em;
     max-width: 44em;
     overflow-y: auto;
+
+    color: #f8f8f8;
+    font-family: Consolas, Monaco, monospace;
+    background-color: #333;
     border-radius: 5px;
 }
 @media (max-width: 880px) {
@@ -79,10 +78,6 @@ pre {
         padding: 0 0.2em;
         width: 100%;
     }
-}
-code {
-    padding: 0 0.2em;
-    word-wrap: break-word;
 }
 
 /* Links */
