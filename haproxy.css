@@ -60,13 +60,18 @@ select {
 }
 
 /* Code blocks */
+pre, code {
+    color: #f8f8f8;
+    font-family: Consolas, Moncao, Courier, monospace;
+    background-color: #333;
+}
 pre {
     box-sizing: border-box;
     margin-left: -2em;
     padding: 0 1em;
     max-width: 44em;
     overflow-y: auto;
-    background-color: #eee;
+    border-radius: 5px;
 }
 @media (max-width: 880px) {
     pre {
@@ -78,7 +83,6 @@ pre {
 code {
     padding: 0 0.2em;
     word-wrap: break-word;
-    background-color: #eee;
 }
 
 /* Links */
