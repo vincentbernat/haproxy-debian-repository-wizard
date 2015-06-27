@@ -10,7 +10,8 @@ angular.module('haproxy', [])
       },
       Ubuntu: {
         precise: 'Precise (12.04 LTS)',
-        trusty: 'Trusty (14.04 LTS)'
+        trusty: 'Trusty (14.04 LTS)',
+        vivid: 'Vivid (15.04)'
       }
     };
     $scope.versions = [
@@ -23,7 +24,8 @@ angular.module('haproxy', [])
       wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|hdn+' },
       jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
-      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' }
+      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' },
+      vivid:   {                          '1.5': 'official-|ppa+' }
     };
 
     $scope.selected = {};
