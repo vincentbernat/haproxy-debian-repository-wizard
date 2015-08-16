@@ -6,7 +6,8 @@ angular.module('haproxy', [])
       Debian: {
         squeeze: 'Squeeze (6)',
         wheezy: 'Wheezy (7)',
-        jessie: 'Jessie (8)'
+        jessie: 'Jessie (8)',
+        sid: 'Sid (unstable)'
       },
       Ubuntu: {
         precise: 'Precise (12.04 LTS)',
@@ -15,17 +16,19 @@ angular.module('haproxy', [])
       }
     };
     $scope.versions = [
-      '1.4',
-      '1.5'
+      '1.4-stable',
+      '1.5-stable',
+      '1.6-dev'
     ];
     // + means latest version, - means a stable version
     var matrix = {
-      squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
-      wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|backports-sloppy+' },
-      jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+' },
-      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
-      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' },
-      vivid:   {                          '1.5': 'official-|ppa+' }
+      squeeze: { '1.4-stable': 'hdn+',           '1.5-stable': 'backports-sloppy-|hdn+' },
+      wheezy:  { '1.4-stable': 'hdn+',           '1.5-stable': 'backports-|backports-sloppy+' },
+      jessie:  { '1.4-stable': 'hdn+',           '1.5-stable': 'official-|backports+' },
+      sid:     {                                 '1.5-stable': 'official+', '1.6-dev': 'experimental+' },
+      precise: { '1.4-stable': 'official-|ppa+', '1.5-stable': 'ppa+' },
+      trusty:  { '1.4-stable': 'official-|ppa+', '1.5-stable': 'backports-|ppa+' },
+      vivid:   {                                 '1.5-stable': 'official-|ppa+' }
     };
 
     $scope.selected = {};

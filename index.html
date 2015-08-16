@@ -48,6 +48,17 @@ $ apt-get update
 $ apt-get install haproxy</pre>
             </div>
 
+            <div ng-show="solution.distribution == 'experimental'">
+                <p>You need to enable the <em>experimental</em> repository:</p>
+                <pre>
+$ echo deb http://httpredir.debian.org/debian experimental main | \
+      sudo tee /etc/apt/sources.list.d/experimental.list</pre>
+                <p>Then, use the following commands:</p>
+                <pre>
+$ apt-get update
+$ apt-get install haproxy -t experimental</pre>
+            </div>
+
             <!-- Backports -->
             <div ng-show="solution.distribution.indexOf('backports') == 0"
                  ng-switch="selected.distribution">
