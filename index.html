@@ -70,6 +70,7 @@ $ apt-get install haproxy -t experimental</pre>
                 <div ng-switch-when="Debian">
                     <pre>
 $ echo deb {{ debian(selected.release, solution.distribution) }} main | \
+      sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr @ '\n' | \
       sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
