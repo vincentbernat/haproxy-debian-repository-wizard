@@ -51,7 +51,7 @@ $ apt-get install haproxy</pre>
             <div ng-show="solution.distribution == 'experimental'">
                 <p>You need to enable the <em>experimental</em> repository:</p>
                 <pre>
-$ echo deb http://httpredir.debian.org/debian experimental main | \
+$ echo deb {{ debian('experimental') }} main | \
       sudo tee /etc/apt/sources.list.d/experimental.list</pre>
                 <p>Then, use the following commands:</p>
                 <pre>
@@ -68,11 +68,8 @@ $ apt-get install haproxy -t experimental</pre>
                     <a ng-switch-when="Ubuntu" href="https://help.ubuntu.com/community/UbuntuBackports">backports repository</a>:
                 </p>
                 <div ng-switch-when="Debian">
-                    <pre ng-show="selected.release.indexOf('squeeze') != 0">
-$ echo deb http://httpredir.debian.org/debian {{ selected.release }}-{{ solution.distribution }} main | \
-      sudo tee /etc/apt/sources.list.d/backports.list</pre>
-                    <pre ng-show="selected.release.indexOf('squeeze') == 0">
-$ echo deb http://httpredir.debian.org/debian-backports {{ selected.release }}-{{ solution.distribution }} main | \
+                    <pre>
+$ echo deb {{ debian(selected.release, solution.distribution) }} main | \
       sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
@@ -113,11 +110,8 @@ $ apt-get install haproxy</pre>
                     First, you need to enable the
                     <a href="http://backports.debian.org/Instructions/">backports repository</a>:
                 </p>
-                <pre ng-show="selected.release.indexOf('squeeze') != 0">
-$ echo deb http://httpredir.debian.org/debian {{ selected.release }}-backports main | \
-      sudo tee /etc/apt/sources.list.d/backports.list</pre>
-                <pre ng-show="selected.release.indexOf('squeeze') == 0">
-$ echo deb http://httpredir.debian.org/debian-backports {{ selected.release }}-backports main | \
+                <pre>
+$ echo deb {{ debian(selected.release, 'backports') }} main | \
       sudo tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, you need to enable a dedicated repository:

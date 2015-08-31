@@ -31,6 +31,13 @@ angular.module('haproxy', [])
       vivid:   {                                 '1.5-stable': 'official-|ppa+' }
     };
 
+    // Helper function to select the appropriate mirror and distribution
+    $scope.debian = function(release, subrelease) {
+      var suffix = (release === 'squeeze')?'debian-backports':'debian';
+      var distribution = subrelease?[release, subrelease].join('-'):release;
+      return 'http://httpredir.debian.org/' + suffix + ' ' + distribution;
+    };
+
     $scope.selected = {};
 
     $scope.solutions = (function() {
