@@ -44,19 +44,19 @@
             <div ng-show="solution.distribution == 'official'">
                 <p>You can install it with the following commands:</p>
                 <pre>
-$ apt-get update
-$ apt-get install haproxy</pre>
+# apt-get update
+# apt-get install haproxy</pre>
             </div>
 
             <div ng-show="solution.distribution == 'experimental'">
                 <p>You need to enable the <em>experimental</em> repository:</p>
                 <pre>
-$ echo deb {{ debian('experimental') }} main | \
-      sudo tee /etc/apt/sources.list.d/experimental.list</pre>
+# echo deb {{ debian('experimental') }} main | \
+      tee /etc/apt/sources.list.d/experimental.list</pre>
                 <p>Then, use the following commands:</p>
                 <pre>
-$ apt-get update
-$ apt-get install haproxy -t experimental</pre>
+# apt-get update
+# apt-get install haproxy -t experimental</pre>
             </div>
 
             <!-- Backports -->
@@ -69,19 +69,19 @@ $ apt-get install haproxy -t experimental</pre>
                 </p>
                 <div ng-switch-when="Debian">
                     <pre>
-$ echo deb {{ debian(selected.release, solution.distribution) }} main | \
+# echo deb {{ debian(selected.release, solution.distribution) }} main | \
       sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr @ '\n' | \
-      sudo tee /etc/apt/sources.list.d/backports.list</pre>
+      tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-$ echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
-      sudo tee /etc/apt/sources.list.d/backports.list</pre>
+# echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
+      tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
-$ apt-get update
-$ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}</pre>
+# apt-get update
+# apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}</pre>
             </div>
 
             <!-- Not available -->
@@ -96,13 +96,13 @@ $ apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}<
                     PPA</a> with the following command:
                 </p>
                 <pre>
-$ add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}</pre>
+# add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}</pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
-$ apt-get update
-$ apt-get install haproxy</pre>
+# apt-get update
+# apt-get install haproxy</pre>
             </div>
 
             <!-- Debian haproxy.debian.net "PPA" -->
@@ -112,23 +112,23 @@ $ apt-get install haproxy</pre>
                     <a href="http://backports.debian.org/Instructions/">backports repository</a>:
                 </p>
                 <pre>
-$ echo deb {{ debian(selected.release, 'backports') }} main | \
-      sudo tee /etc/apt/sources.list.d/backports.list</pre>
+# echo deb {{ debian(selected.release, 'backports') }} main | \
+      tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, you need to enable a dedicated repository:
                 </p>
                 <pre>
-$ curl http://haproxy.debian.net/bernat.debian.org.gpg | \
-      sudo apt-key add -
-$ echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main | \
-      sudo tee /etc/apt/sources.list.d/haproxy.list
+# curl http://haproxy.debian.net/bernat.debian.org.gpg | \
+      apt-key add -
+# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main | \
+      tee /etc/apt/sources.list.d/haproxy.list
 EOF</pre>
                 <p>
                     Then, use the following commands:
                 </p>
                 <pre>
-$ apt-get update
-$ apt-get install haproxy -t {{ selected.release }}-backports-{{ selected.version }}</pre>
+# apt-get update
+# apt-get install haproxy -t {{ selected.release }}-backports-{{ selected.version }}</pre>
             </div>
 
             <!-- Stable or latest? -->
