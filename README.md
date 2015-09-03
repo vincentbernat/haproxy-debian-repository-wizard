@@ -7,7 +7,7 @@ to be modified for other purposes.
 To avoid tracking the user, AngularJS is not taken on any CDN. You may
 redownload it with:
 
-    wget https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js
+    wget https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js
 
 [AngularJS]: https://angularjs.org/
 
