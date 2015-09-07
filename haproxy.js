@@ -15,20 +15,20 @@ angular.module('haproxy', [])
         vivid: 'Vivid (15.04)'
       }
     };
-    $scope.versions = [
-      '1.4-stable',
-      '1.5-stable',
-      '1.6-dev'
-    ];
+    $scope.versions = {
+      '1.4': '1.4-stable',
+      '1.5': '1.5-stable',
+      '1.6': '1.6-stable'
+    };
     // + means latest version, - means a stable version
     var matrix = {
-      squeeze: { '1.4-stable': 'hdn+',           '1.5-stable': 'backports-sloppy-|hdn+' },
-      wheezy:  { '1.4-stable': 'hdn+',           '1.5-stable': 'backports-|backports-sloppy+' },
-      jessie:  { '1.4-stable': 'hdn+',           '1.5-stable': 'official-|backports+' },
-      sid:     {                                 '1.5-stable': 'official+', '1.6-dev': 'experimental+' },
-      precise: { '1.4-stable': 'official-|ppa+', '1.5-stable': 'ppa+' },
-      trusty:  { '1.4-stable': 'official-|ppa+', '1.5-stable': 'backports-|ppa+' },
-      vivid:   {                                 '1.5-stable': 'official-|ppa+' }
+      squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
+      wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|backports-sloppy+' },
+      jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+' },
+      sid:     {                          '1.5': 'official+', '1.6': 'experimental+' },
+      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
+      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' },
+      vivid:   {                          '1.5': 'official-|ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution

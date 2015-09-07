@@ -30,7 +30,7 @@
                     ng-model="selected.release">
             </select>
             and I want to install <i>HAProxy</i> version
-            <select ng-options="version for version in versions"
+            <select ng-options="version as name for (version, name) in versions"
                     ng-model="selected.version">
             </select>.
         </blockquote>
