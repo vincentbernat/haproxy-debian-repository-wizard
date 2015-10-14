@@ -25,10 +25,10 @@ angular.module('haproxy', [])
       squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
       wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|backports-sloppy+' },
       jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+' },
-      sid:     {                          '1.5': 'official+', '1.6': 'experimental+' },
-      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+' },
-      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+' },
-      vivid:   {                          '1.5': 'official-|ppa+' }
+      sid:     {                          '1.5': 'official+',                    '1.6': 'experimental+' },
+      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',                         '1.6': 'ppa+' },
+      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
+      vivid:   {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
