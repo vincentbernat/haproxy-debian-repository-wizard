@@ -24,7 +24,7 @@ angular.module('haproxy', [])
     var matrix = {
       squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
       wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|backports-sloppy+' },
-      jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+' },
+      jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+',         '1.6': 'hdn+' },
       sid:     {                          '1.5': 'official+',                    '1.6': 'experimental+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',                         '1.6': 'ppa+' },
       trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
