@@ -28,7 +28,8 @@ angular.module('haproxy', [])
       sid:     {                          '1.5': 'official+',                    '1.6': 'experimental+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',                         '1.6': 'ppa+' },
       trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
-      vivid:   {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' }
+      vivid:   {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' },
+      wily:    {                          '1.5': 'official-',                    '1.6': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
