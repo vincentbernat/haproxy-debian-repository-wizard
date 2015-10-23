@@ -12,7 +12,8 @@ angular.module('haproxy', [])
       Ubuntu: {
         precise: 'Precise (12.04 LTS)',
         trusty: 'Trusty (14.04 LTS)',
-        vivid: 'Vivid (15.04)'
+        vivid: 'Vivid (15.04)',
+        wily: 'Wily (15.10)'
       }
     };
     $scope.versions = {
