@@ -28,7 +28,7 @@ angular.module('haproxy', [])
       jessie:  { '1.4': 'hdn+',           '1.5': 'official-|backports+',         '1.6': 'hdn+' },
       sid:     {                          '1.5': 'official+',                    '1.6': 'experimental+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',                         '1.6': 'ppa+' },
-      trusty:  { '1.4': 'official-|ppa+', '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
+      trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
       vivid:   {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' },
       wily:    {                          '1.5': 'official-',                    '1.6': 'ppa+' }
     };
