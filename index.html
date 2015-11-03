@@ -36,9 +36,11 @@
         </blockquote>
 
         <div ng-repeat="solution in solutions() track by solution.id">
-            <h2 ng-if="solution.version">Instructions for {{solution.version}} release</h2>
-            <h2 ng-if="!solution.version && $first">Instructions</h2>
-            <h2 ng-if="!solution.version && !$first">Alternative instructions</h2>
+            <h2>
+                <span ng-if="$first || solutions()[$index-1].version != solution.version">Instructions</span>
+                <span ng-if="!$first && solutions()[$index-1].version == solution.version">Alternative instructions</span>
+                <span ng-if="solution.version">for {{solution.version}} release</span>
+            </h2>
 
             <!-- Official repository -->
             <div ng-show="solution.distribution == 'official'">
