@@ -1,5 +1,5 @@
 angular.module('haproxy', [])
-  .controller('InstructionsCtrl', function($scope) {
+  .controller('InstructionsCtrl', function($scope, $location) {
     'use strict';
 
     $scope.distributions = {
@@ -40,7 +40,10 @@ angular.module('haproxy', [])
       return 'http://httpredir.debian.org/' + suffix + ' ' + distribution;
     };
 
-    $scope.selected = {};
+    $scope.selected = $location.search() || {};
+    $scope.$on('$locationChangeSuccess', function(event){
+      $scope.selected = $location.search() || {};
+    });
 
     $scope.solutions = (function() {
       var previous = null;
@@ -51,6 +54,9 @@ angular.module('haproxy', [])
             !$scope.selected.version) {
           return null;
         }
+        $location.search('distribution', $scope.selected.distribution);
+        $location.search('release', $scope.selected.release);
+        $location.search('version', $scope.selected.version);
 
         var proposed = (matrix[$scope.selected.release] || {})[$scope.selected.version]
           , solutions = (proposed || 'unavailable').split('|')
