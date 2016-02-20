@@ -12,7 +12,6 @@ angular.module('haproxy', [])
       Ubuntu: {
         precise: 'Precise (12.04 LTS)',
         trusty: 'Trusty (14.04 LTS)',
-        vivid: 'Vivid (15.04)',
         wily: 'Wily (15.10)',
         xenial: 'Xenial (16.04)'
       }
@@ -30,7 +29,6 @@ angular.module('haproxy', [])
       sid:     {                                                                 '1.6': 'official+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',                         '1.6': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+',              '1.6': 'ppa+' },
-      vivid:   {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' },
       wily:    {                          '1.5': 'official-|ppa+',               '1.6': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',                         '1.6': 'official-|ppa+' }
     };
