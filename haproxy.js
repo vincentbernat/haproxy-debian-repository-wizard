@@ -4,7 +4,6 @@ angular.module('haproxy', [])
 
     $scope.distributions = {
       Debian: {
-        squeeze: 'Squeeze (6)',
         wheezy: 'Wheezy (7)',
         jessie: 'Jessie (8)',
         sid: 'Sid (unstable)'
@@ -23,7 +22,6 @@ angular.module('haproxy', [])
     };
     // + means latest version, - means a stable version
     var matrix = {
-      squeeze: { '1.4': 'hdn+',           '1.5': 'backports-sloppy-|hdn+' },
       wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|hdn+',              '1.6': 'backports-sloppy+|hdn+' },
       jessie:  { '1.4': 'hdn+',           '1.5': 'official-|hdn+',               '1.6': 'backports+|hdn+' },
       sid:     {                                                                 '1.6': 'official+' },
@@ -35,7 +33,7 @@ angular.module('haproxy', [])
 
     // Helper function to select the appropriate mirror and distribution
     $scope.debian = function(release, subrelease) {
-      var suffix = (release === 'squeeze')?'debian-backports':'debian';
+      var suffix = 'debian';
       var distribution = subrelease?[release, subrelease].join('-'):release;
       return 'http://httpredir.debian.org/' + suffix + ' ' + distribution;
     };
