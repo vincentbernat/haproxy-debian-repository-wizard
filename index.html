@@ -24,7 +24,6 @@
             <select ng-options="name as name for (name, dist) in distributions"
                     ng-change="selected.release = null"
                     ng-model="selected.distribution">
-        </option>
             </select>
             <select ng-options="release as name for (release, name) in distributions[selected.distribution]"
                     ng-model="selected.release">
@@ -53,8 +52,8 @@
             <div ng-show="solution.distribution == 'experimental'">
                 <p>You need to enable the <em>experimental</em> repository:</p>
                 <pre>
-# echo deb {{ debian('experimental') }} main | \
-      tee /etc/apt/sources.list.d/experimental.list</pre>
+# echo "deb {{ debian('experimental') }} main" \
+      | tee /etc/apt/sources.list.d/experimental.list</pre>
                 <p>Then, use the following commands:</p>
                 <pre>
 # apt-get update
@@ -71,13 +70,13 @@
                 </p>
                 <div ng-switch-when="Debian">
                     <pre>
-# echo deb {{ debian(selected.release, solution.distribution) }} main | \
-      sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr @ '\n' | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
+# echo "deb {{ debian(selected.release, solution.distribution) }} main" \
+      | sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr '@' '\n' \
+      | tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-# echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
+# echo "deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe" \
+      | tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
@@ -115,16 +114,16 @@
                     <a href="http://backports.debian.org/Instructions/">backports repository</a>:
                 </p>
                 <pre>
-# echo deb {{ debian(selected.release, 'backports') }} main | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
+# echo "deb {{ debian(selected.release, 'backports') }} main" \
+      | tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, you need to enable a dedicated repository:
                 </p>
                 <pre>
-# curl https://haproxy.debian.net/bernat.debian.org.gpg | \
-      apt-key add -
-# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main | \
-      tee /etc/apt/sources.list.d/haproxy.list</pre>
+# curl https://haproxy.debian.net/bernat.debian.org.gpg \
+      | apt-key add -
+# echo "deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main" \
+      | tee /etc/apt/sources.list.d/haproxy.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
