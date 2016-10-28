@@ -24,7 +24,6 @@
             <select ng-options="name as name for (name, dist) in distributions"
                     ng-change="selected.release = null"
                     ng-model="selected.distribution">
-        </option>
             </select>
             <select ng-options="release as name for (release, name) in distributions[selected.distribution]"
                     ng-model="selected.release">
