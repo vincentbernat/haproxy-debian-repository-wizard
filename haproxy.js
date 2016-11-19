@@ -25,7 +25,7 @@ angular.module('haproxy', [])
     var matrix = {
       wheezy:  { '1.4': 'hdn+',           '1.5': 'backports-|hdn+', '1.6': 'backports-sloppy+|hdn+' },
       jessie:  { '1.4': 'hdn+',           '1.5': 'official-|hdn+',  '1.6': 'backports+|hdn+' },
-      sid:     {                                                    '1.6': 'official+' },
+      sid:     {                                                    '1.6': 'official+',            '1.7': 'experimental+' },
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',                 '1.7': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+',       '1.7': 'ppa+' },
