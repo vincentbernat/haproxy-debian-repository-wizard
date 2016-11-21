@@ -29,7 +29,7 @@ angular.module('haproxy', [])
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',                 '1.7': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+',       '1.7': 'ppa+' },
-      yakkety: {                                                    '1.6': 'official+',            '1.7': 'ppa+' }
+      yakkety: {                                                    '1.6': 'official-',            '1.7': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
