@@ -115,6 +115,7 @@
                 </p>
                 <pre>
 # echo deb {{ debian(selected.release, 'backports') }} main | \
+      sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr @ '\n' | \
       tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, you need to enable a dedicated repository:
