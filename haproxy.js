@@ -28,7 +28,7 @@ angular.module('haproxy', [])
       jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'backports+|hdn+',        '1.7': 'hdn+' },
       sid:     {                                          '1.6': 'official+',              '1.7': 'experimental+' },
       // Ubuntu
-      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+' },
+      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+',                   '1.7': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',                   '1.7': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+',         '1.7': 'ppa+' },
       yakkety: {                                                    '1.6': 'official-',              '1.7': 'ppa+' }
