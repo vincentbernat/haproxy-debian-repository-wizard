@@ -12,7 +12,8 @@ angular.module('haproxy', [])
         precise: 'Precise (12.04 LTS)',
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04)',
-        yakkety: 'Yakkety (16.10)'
+        yakkety: 'Yakkety (16.10)',
+        zesty: 'Zesty (17.04)'
       }
     };
     $scope.versions = {
@@ -31,7 +32,8 @@ angular.module('haproxy', [])
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+',           '1.7': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+' },
-      yakkety: {                                                    '1.6': 'official-',      '1.7': 'ppa+' }
+      yakkety: {                                                    '1.6': 'official-',      '1.7': 'ppa+' },
+      zesty:   {                                                                             '1.7': 'official-|ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
