@@ -71,7 +71,7 @@
                 <div ng-switch-when="Debian">
                     <pre>
 # echo deb {{ debian(selected.release, solution.distribution) }} main | \
-      sed 's/\(.*\)-sloppy \(.*\)/&@\1 \2/' | tr @ '\n' | \
+      sed 's/\(.*\)-sloppy \(.*\)/&\n\1 \2/' | \
       tee /etc/apt/sources.list.d/backports.list</pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
@@ -115,7 +115,7 @@
                 </p>
                 <pre>
 # echo deb {{ debian(selected.release, 'backports') }} main | \
-      sed 's/\(.*-backports\) \(.*\)/&@\1-sloppy \2/' | tr @ '\n' | \
+      sed 's/\(.*-backports\) \(.*\)/&\n\1-sloppy \2/' | \
       tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, you need to enable a dedicated repository:
