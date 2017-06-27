@@ -135,7 +135,7 @@
 
             <!-- Stable or latest? -->
             <p ng-show="solution.version == 'latest'">
-                You will get the <em>latest</em> release of HAProxy {{ selected.version }}.
+                You will get the <em>latest</em> release of HAProxy {{ selected.version }}<span ng-show="solution.distribution.indexOf('backports') == 0"> (or a later version)</span>.
             </p>
             <p ng-show="solution.version == 'stable'">
                 You will get a <em>stable</em> release of HAProxy {{
