@@ -27,8 +27,8 @@ angular.module('haproxy', [])
     var matrix = {
       // Debian
       wheezy:  { '1.4': 'hdn+', '1.5': 'backports-|hdn+', '1.6': 'hdn+', '1.7': 'backports-sloppy+|hdn+' },
-      jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports+|hdn+' },
-      stretch: {                                          '1.6': 'hdn+', '1.7': 'official-' },
+      jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports-|backports-sloppy+|hdn+' },
+      stretch: {                                          '1.6': 'hdn+', '1.7': 'official-|hdn+' },
       sid:     {                                                         '1.7': 'official+' },
       // Ubuntu
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+',           '1.7': 'ppa+' },
