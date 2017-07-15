@@ -26,7 +26,7 @@ angular.module('haproxy', [])
     // + means latest version, - means a stable version
     var matrix = {
       // Debian
-      wheezy:  { '1.4': 'hdn+', '1.5': 'backports-|hdn+', '1.6': 'hdn+', '1.7': 'backports-sloppy-|hdn+' },
+      wheezy:  { '1.4': 'hdn+', '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
       jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports-|backports-sloppy+|hdn+' },
       stretch: {                                          '1.6': 'hdn+', '1.7': 'official-|backports+|hdn+' },
       sid:     {                                                         '1.7': 'official+' },
