@@ -11,7 +11,7 @@ angular.module('haproxy', [])
       },
       Ubuntu: {
         trusty: 'Trusty (14.04 LTS)',
-        xenial: 'Xenial (16.04)',
+        xenial: 'Xenial (16.04 LTS)',
         zesty: 'Zesty (17.04)'
       }
     };
