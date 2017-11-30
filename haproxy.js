@@ -30,13 +30,18 @@ angular.module('haproxy', [])
       wheezy:  { '1.4': 'hdn+', '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
       jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports-|backports-sloppy+|hdn+' },
       stretch: {                                          '1.6': 'hdn+', '1.7': 'official-|backports+|hdn+' },
-      sid:     {                                                         '1.7': 'official+', '1.8': 'experimental+' },
+      sid:     {                                                         '1.7': 'official+',
+                                                                         '1.8': 'experimental+' },
       // Ubuntu
       precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+',           '1.7': 'ppa+' },
-      trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+' },
-      xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+' },
-      zesty:   {                                                                             '1.7': 'official-|ppa+' },
-      artful:  {                                                                             '1.7': 'official-|ppa+' }
+      trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
+                                                                                             '1.8': 'ppa+' },
+      xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
+                                                                                             '1.8': 'ppa+' },
+      zesty:   {                                                                             '1.7': 'official-|ppa+',
+                                                                                             '1.8': 'ppa+' },
+      artful:  {                                                                             '1.7': 'official-|ppa+',
+                                                                                             '1.8': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
