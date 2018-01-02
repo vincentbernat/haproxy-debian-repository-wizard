@@ -10,7 +10,6 @@ angular.module('haproxy', [])
         sid: 'Sid (unstable)'
       },
       Ubuntu: {
-        precise: 'Precise (12.04 LTS)',
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
         zesty: 'Zesty (17.04)',
@@ -35,7 +34,6 @@ angular.module('haproxy', [])
       sid:     {                                                         '1.7': 'official+',
                                                                          '1.8': 'experimental+' },
       // Ubuntu
-      precise: { '1.4': 'official-|ppa+', '1.5': 'ppa+',            '1.6': 'ppa+',           '1.7': 'ppa+' },
       trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                                                                                              '1.8': 'ppa+' },
       xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
