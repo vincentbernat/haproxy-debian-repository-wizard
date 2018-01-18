@@ -46,7 +46,7 @@
                 <p>You can install it with the following commands:</p>
                 <pre>
 # apt-get update
-# apt-get install haproxy</pre>
+# apt-get install haproxy={{ selected.version }}.\*</pre>
             </div>
 
             <div ng-show="solution.distribution == 'experimental'">
@@ -57,7 +57,7 @@
                 <p>Then, use the following commands:</p>
                 <pre>
 # apt-get update
-# apt-get install haproxy -t experimental</pre>
+# apt-get install haproxy={{ selected.version }}.\*</pre>
             </div>
 
             <!-- Backports -->
@@ -82,7 +82,7 @@
                 </p>
                 <pre>
 # apt-get update
-# apt-get install haproxy -t {{ selected.release }}-{{ solution.distribution }}</pre>
+# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}</pre>
             </div>
 
             <!-- Not available -->
@@ -104,7 +104,7 @@
                 </p>
                 <pre>
 # apt-get update
-# apt-get install haproxy</pre>
+# apt-get install haproxy={{ selected.version }}.\*</pre>
             </div>
 
             <!-- Debian haproxy.debian.net "PPA" -->
@@ -132,7 +132,7 @@
                 </p>
                 <pre>
 # apt-get update
-# apt-get install haproxy/{{ selected.release }}-backports-{{ selected.version }} -t {{ selected.release }}-backports</pre>
+# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-backports</pre>
             </div>
 
             <!-- Stable or latest? -->
