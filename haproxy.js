@@ -4,10 +4,10 @@ angular.module('haproxy', [])
 
     $scope.distributions = {
       Debian: {
-        wheezy: 'Wheezy (7)',
-        jessie: 'Jessie (8)',
+        wheezy:  'Wheezy (7)',
+        jessie:  'Jessie (8)',
         stretch: 'Stretch (9)',
-        sid: 'Sid (unstable)'
+        sid:     'Sid (unstable)'
       },
       Ubuntu: {
         trusty: 'Trusty (14.04 LTS)',
