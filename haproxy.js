@@ -16,7 +16,6 @@ angular.module('haproxy', [])
       }
     };
     $scope.versions = {
-      '1.4': '1.4-stable',
       '1.5': '1.5-stable',
       '1.6': '1.6-stable',
       '1.7': '1.7-stable',
@@ -25,20 +24,20 @@ angular.module('haproxy', [])
     // + means latest version, - means a stable version
     var matrix = {
       // Debian
-      wheezy:  { '1.4': 'hdn+', '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
-      jessie:  { '1.4': 'hdn+', '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports-|backports-sloppy+|hdn+',
-                                                                         '1.8': 'hdn+' },
-      stretch: {                                          '1.6': 'hdn+', '1.7': 'official-|backports+|hdn+',
-                                                                         '1.8': 'hdn+' },
-      sid:     {                                                         '1.7': 'official+',
-                                                                         '1.8': 'experimental+' },
+      wheezy:  { '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
+      jessie:  { '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'backports-|backports-sloppy+|hdn+',
+                                                          '1.8': 'hdn+' },
+      stretch: {                           '1.6': 'hdn+', '1.7': 'official-|backports+|hdn+',
+                                                          '1.8': 'hdn+' },
+      sid:     {                                          '1.7': 'official+',
+                                                          '1.8': 'experimental+' },
       // Ubuntu
-      trusty:  { '1.4': 'official-',      '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
-                                                                                             '1.8': 'ppa+' },
-      xenial:  {                          '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
-                                                                                             '1.8': 'ppa+' },
-      artful:  {                                                                             '1.7': 'official-|ppa+',
-                                                                                             '1.8': 'ppa+' }
+      trusty:  {  '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
+                                                                     '1.8': 'ppa+' },
+      xenial:  {  '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
+                                                                     '1.8': 'ppa+' },
+      artful:  {                                                     '1.7': 'official-|ppa+',
+                                                                     '1.8': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
