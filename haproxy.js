@@ -13,6 +13,7 @@ angular.module('haproxy', [])
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
         artful: 'Artful (17.10)'
+        bionic: 'Bionic (18.04 LTS)'
       }
     };
     $scope.versions = {
@@ -37,6 +38,8 @@ angular.module('haproxy', [])
       xenial:  {  '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
                                                                      '1.8': 'ppa+' },
       artful:  {                                                     '1.7': 'official-|ppa+',
+                                                                     '1.8': 'ppa+' },
+      bionic:  {                                                     '1.7': 'official-|ppa+',
                                                                      '1.8': 'ppa+' }
     };
 
