@@ -12,7 +12,7 @@ angular.module('haproxy', [])
       Ubuntu: {
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
-        artful: 'Artful (17.10)'
+        artful: 'Artful (17.10)',
         bionic: 'Bionic (18.04 LTS)'
       }
     };
