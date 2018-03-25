@@ -30,8 +30,7 @@ angular.module('haproxy', [])
                                                           '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|backports+|hdn+',
                                                           '1.8': 'hdn+' },
-      sid:     {                                          '1.7': 'official+',
-                                                          '1.8': 'experimental+' },
+      sid:     {                                          '1.8': 'official+' },
       // Ubuntu
       trusty:  {  '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                                                                      '1.8': 'ppa+' },
