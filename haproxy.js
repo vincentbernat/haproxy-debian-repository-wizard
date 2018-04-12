@@ -38,8 +38,8 @@ angular.module('haproxy', [])
                                                                      '1.8': 'ppa+' },
       artful:  {                                                     '1.7': 'official-|ppa+',
                                                                      '1.8': 'ppa+' },
-      bionic:  {                                                     '1.7': 'official-|ppa+',
-                                                                     '1.8': 'ppa+' }
+      bionic:  {                                                     '1.7': 'ppa+',
+                                                                     '1.8': 'official-|ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
