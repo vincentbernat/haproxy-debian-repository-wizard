@@ -83,7 +83,7 @@
                 </p>
                 <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}</pre>
+# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}<span ng-show="solution.distribution.indexOf('-sloppy') > 0"> -t {{ selected.release }}-{{ solution.distribution.replace('-sloppy', '') }}</span></pre>
             </div>
 
             <!-- Not available -->
