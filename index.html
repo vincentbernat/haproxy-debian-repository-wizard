@@ -71,8 +71,9 @@
                 <div ng-switch-when="Debian">
                     <pre>
 # echo deb {{ debian(selected.release, solution.distribution) }} main | \
-      sed 's/\(.*\)-sloppy \(.*\)/&\n\1 \2/' | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
+      tee /etc/apt/sources.list.d/backports.list<span ng-show="solution.distribution.indexOf('-sloppy') > 0">
+# echo deb {{ debian(selected.release, solution.distribution.replace('-sloppy', '')) }} main | \
+      tee -a /etc/apt/sources.list.d/backports.list</span></pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
 # echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
