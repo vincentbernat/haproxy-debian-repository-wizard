@@ -118,10 +118,7 @@
 # echo deb {{ debian(selected.release, 'backports') }} main | \
       tee /etc/apt/sources.list.d/backports.list</pre>
                 <p>
-                    Then, you need to enable a dedicated repository
-                    (if later, you get an expired key error during
-                    <code>apt-get update</code>, you'll need to redo
-                    the first command):
+                    Then, you need to enable a dedicated repository:
                 </p>
                 <pre>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg | \
