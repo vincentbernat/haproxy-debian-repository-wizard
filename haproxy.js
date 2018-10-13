@@ -12,7 +12,8 @@ angular.module('haproxy', [])
       Ubuntu: {
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
-        bionic: 'Bionic (18.04 LTS)'
+        bionic: 'Bionic (18.04 LTS)',
+        cosmic: 'Cosmic (18.10)'
       }
     };
     $scope.versions = {
@@ -36,7 +37,8 @@ angular.module('haproxy', [])
       xenial:  {  '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
                                                                      '1.8': 'ppa+' },
       bionic:  {                                                     '1.7': 'ppa+',
-                                                                     '1.8': 'official-|ppa+' }
+                                                                     '1.8': 'official-|ppa+' },
+      cosmic:  {                                                     '1.8': 'official-' }
     };
 
     // Helper function to select the appropriate mirror and distribution
