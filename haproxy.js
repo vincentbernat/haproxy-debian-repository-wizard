@@ -20,7 +20,8 @@ angular.module('haproxy', [])
       '1.5': '1.5-stable',
       '1.6': '1.6-stable',
       '1.7': '1.7-stable',
-      '1.8': '1.8-stable'
+      '1.8': '1.8-stable',
+      '1.9': '1.9-stable'
     };
     // + means latest version, - means a stable version
     var matrix = {
@@ -30,7 +31,8 @@ angular.module('haproxy', [])
                                                           '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
                                                           '1.8': 'backports+|hdn+' },
-      sid:     {                                          '1.8': 'official+' },
+      sid:     {                                          '1.8': 'official+',
+                                                          '1.9': 'experimental' },
       // Ubuntu
       trusty:  {  '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                                                                      '1.8': 'ppa+' },
