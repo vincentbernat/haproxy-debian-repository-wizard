@@ -28,11 +28,10 @@ angular.module('haproxy', [])
       // Debian
       wheezy:  { '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
       jessie:  { '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'hdn+',
-                                                          '1.8': 'hdn+' },
+                 '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
-                                                          '1.8': 'backports+|hdn+' },
-      sid:     {                                          '1.8': 'official+',
-                                                          '1.9': 'experimental' },
+                 '1.8': 'backports+|hdn+', '1.9': 'hdn+' },
+      sid:     { '1.8': 'official+',       '1.9': 'experimental' },
       // Ubuntu
       trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                  '1.8': 'ppa+' },
