@@ -34,13 +34,13 @@ angular.module('haproxy', [])
       sid:     {                                          '1.8': 'official+',
                                                           '1.9': 'experimental' },
       // Ubuntu
-      trusty:  {  '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
-                                                                     '1.8': 'ppa+' },
-      xenial:  {  '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
-                                                                     '1.8': 'ppa+' },
-      bionic:  {                                                     '1.7': 'ppa+',
-                                                                     '1.8': 'official-|ppa+' },
-      cosmic:  {                                                     '1.8': 'official-' }
+      trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
+                 '1.8': 'ppa+' },
+      xenial:  { '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
+                 '1.8': 'ppa+',            '1.9': 'ppa+' },
+      bionic:  {                                                    '1.7': 'ppa+',
+                 '1.8': 'official-|ppa+',  '1.9': 'ppa+' },
+      cosmic:  { '1.8': 'official-' }
     };
 
     // Helper function to select the appropriate mirror and distribution
