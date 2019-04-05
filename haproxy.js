@@ -46,7 +46,7 @@ angular.module('haproxy', [])
     $scope.debian = function(release, subrelease) {
       var suffix = 'debian';
       var distribution = subrelease?[release, subrelease].join('-'):release;
-      return 'http://httpredir.debian.org/' + suffix + ' ' + distribution;
+      return 'http://deb.debian.org/' + suffix + ' ' + distribution;
     };
 
     $scope.selected = $location.search() || {};
