@@ -4,7 +4,6 @@ angular.module('haproxy', [])
 
     $scope.distributions = {
       Debian: {
-        wheezy:  'Wheezy (7, ELTS)',
         jessie:  'Jessie (8, LTS)',
         stretch: 'Stretch (9)',
         sid:     'Sid (unstable)'
@@ -26,7 +25,6 @@ angular.module('haproxy', [])
     // + means latest version, - means a stable version
     var matrix = {
       // Debian
-      wheezy:  { '1.5': 'hdn+',            '1.6': 'hdn+', '1.7': 'hdn+' },
       jessie:  { '1.5': 'official-|hdn+',  '1.6': 'hdn+', '1.7': 'hdn+',
                  '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
