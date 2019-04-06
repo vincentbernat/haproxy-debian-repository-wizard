@@ -111,14 +111,7 @@
             <!-- Debian haproxy.debian.net "PPA" -->
             <div ng-show="solution.distribution == 'hdn'">
                 <p>
-                    First, you need to enable the
-                    <a href="http://backports.debian.org/Instructions/">backports repository</a>:
-                </p>
-                <pre>
-# echo deb {{ debian(selected.release, 'backports') }} main | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
-                <p>
-                    Then, you need to enable a dedicated repository:
+                    You need to enable a dedicated repository:
                 </p>
                 <pre>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg | \
@@ -130,7 +123,7 @@
                 </p>
                 <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-backports</pre>
+# apt-get install haproxy={{ selected.version }}.\*</pre>
             </div>
 
             <!-- Stable or latest? -->
