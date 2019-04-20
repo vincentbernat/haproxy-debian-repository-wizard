@@ -130,17 +130,16 @@
             <p ng-show="solution.version == 'latest'">
                 You will get the <em>latest</em> release of HAProxy {{ selected.version }}
                 <span ng-switch="solution.distribution">
-                    <span ng-switch-when="ppa">(and stick to this version).</span>
-                    <span ng-switch-when="hdn">(and stick to this version).</span>
+                    <span ng-switch-when="ppa">(and stick to this branch).</span>
+                    <span ng-switch-when="hdn">(and stick to this branch).</span>
                     <span ng-switch-default>(or a later version).</span>
                 </span>
             </p>
             <p ng-show="solution.version == 'stable'">
                 You will get a <em>stable</em> release of HAProxy {{
-                selected.version }}: you may not get the
-                latest version but important fixes from later versions
-                are included. Moreover, regressions are quite
-                unlikely.
+                selected.version }}: you may not get the latest
+                version but important fixes from later versions are
+                included. Moreover, regressions are unlikely.
             </p>
 
         </div>
