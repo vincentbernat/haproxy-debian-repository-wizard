@@ -38,9 +38,9 @@ angular.module('haproxy', [])
       trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                  '1.8': 'ppa+' },
       xenial:  { '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
-                 '1.8': 'ppa+',            '1.9': 'ppa+' },
+                 '1.8': 'ppa+',            '1.9': 'ppa+',           '2.0': 'ppa+' },
       bionic:  {                                                    '1.7': 'ppa+',
-                 '1.8': 'official-|ppa+',  '1.9': 'ppa+' },
+                 '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+' },
       cosmic:  { '1.8': 'official-' },
       disco:   { '1.8': 'official-' }
     };
