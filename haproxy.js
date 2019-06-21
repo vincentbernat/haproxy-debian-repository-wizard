@@ -6,6 +6,7 @@ angular.module('haproxy', [])
       Debian: {
         jessie:  'Jessie (8, LTS)',
         stretch: 'Stretch (9)',
+        buster:  'Buster (10)',
         sid:     'Sid (unstable)'
       },
       Ubuntu: {
@@ -31,6 +32,7 @@ angular.module('haproxy', [])
                  '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
                  '1.8': 'backports+|hdn+', '1.9': 'hdn+' },
+      buster:  { '1.8': 'official-' },
       sid:     { '1.8': 'official+',       '2.0': 'experimental' },
       // Ubuntu
       trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
