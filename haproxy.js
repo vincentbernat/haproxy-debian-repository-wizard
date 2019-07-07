@@ -32,7 +32,7 @@ angular.module('haproxy', [])
                  '1.8': 'hdn+' },
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
                  '1.8': 'backports+|hdn+', '1.9': 'hdn+', '2.0': 'hdn+' },
-      buster:  { '1.8': 'official-',                      '2.0': 'hdn+' },
+      buster:  { '1.8': 'official-|hdn+',                 '2.0': 'hdn+' },
       sid:     { '1.8': 'official+',       '2.0': 'experimental' },
       // Ubuntu
       trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
