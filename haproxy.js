@@ -23,7 +23,8 @@ angular.module('haproxy', [])
       '1.7': '1.7-stable (LTS)',
       '1.8': '1.8-stable (LTS)',
       '1.9': '1.9-stable',
-      '2.0': '2.0-stable (LTS)'
+      '2.0': '2.0-stable (LTS)',
+      '2.1': '2.1-stable'
     };
     // + means latest version, - means a stable version
     var matrix = {
