@@ -34,14 +34,16 @@ angular.module('haproxy', [])
       stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
                  '1.8': 'backports+|hdn+', '1.9': 'hdn+', '2.0': 'hdn+' },
       buster:  { '1.8': 'official-|hdn+',                 '2.0': 'backport+|hdn+' },
-      sid:     { '2.0': 'official+',       '2.1': 'experimental' },
+      sid:     {                                          '2.0': 'official+',
+                 '2.1': 'experimental' },
       // Ubuntu
       trusty:  { '1.5': 'backports-|ppa+', '1.6': 'ppa+',           '1.7': 'ppa+',
                  '1.8': 'ppa+' },
       xenial:  { '1.5': 'ppa+',            '1.6': 'official-|ppa+', '1.7': 'ppa+',
                  '1.8': 'ppa+',            '1.9': 'ppa+',           '2.0': 'ppa+' },
       bionic:  {                                                    '1.7': 'ppa+',
-                 '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+' },
+                 '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+',
+                 '2.1': 'ppa+' },
       disco:   { '1.8': 'official-' },
       eoan:    {                                                    '2.0': 'official-' },
     };
