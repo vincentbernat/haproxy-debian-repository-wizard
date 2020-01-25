@@ -13,7 +13,6 @@ angular.module('haproxy', [])
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
         bionic: 'Bionic (18.04 LTS)',
-        disco:  'Disco (19.04)',
         eoan:   'Eoan (19.10)'
       }
     };
@@ -45,7 +44,6 @@ angular.module('haproxy', [])
       bionic:  {                                                    '1.7': 'ppa+',
                  '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+',
                  '2.1': 'ppa+' },
-      disco:   { '1.8': 'official-' },
       eoan:    {                                                    '2.0': 'official-' },
     };
 
