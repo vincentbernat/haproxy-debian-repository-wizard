@@ -13,7 +13,8 @@ angular.module('haproxy', [])
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
         bionic: 'Bionic (18.04 LTS)',
-        eoan:   'Eoan (19.10)'
+        eoan:   'Eoan (19.10)',
+        focal:  'Focal (20.04)'
       }
     };
     $scope.versions = {
@@ -45,6 +46,8 @@ angular.module('haproxy', [])
                  '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+',
                  '2.1': 'ppa+' },
       eoan:    {                                                    '2.0': 'official-' },
+      focal:   {                                                    '2.0': 'official-|ppa+',
+                 '2.1': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
