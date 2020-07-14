@@ -45,10 +45,10 @@ angular.module('haproxy', [])
                  '1.8': 'ppa+',            '1.9': 'ppa+',           '2.0': 'ppa+' },
       bionic:  {                                                    '1.7': 'ppa+',
                  '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+',
-                 '2.1': 'ppa+' },
+                 '2.1': 'ppa+',            '2.2': 'ppa+' },
       eoan:    {                                                    '2.0': 'official-' },
       focal:   {                                                    '2.0': 'official-|ppa+',
-                 '2.1': 'ppa+' }
+                 '2.1': 'ppa+',            '2.2': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
