@@ -14,7 +14,7 @@ angular.module('haproxy', [])
         xenial: 'Xenial (16.04 LTS)',
         bionic: 'Bionic (18.04 LTS)',
         eoan:   'Eoan (19.10)',
-        focal:  'Focal (20.04)'
+        focal:  'Focal (20.04 LTS)'
       }
     };
     $scope.versions = {
