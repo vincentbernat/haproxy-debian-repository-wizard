@@ -20,7 +20,6 @@ angular.module('haproxy', [])
       '1.6': '1.6-stable (LTS)',
       '1.7': '1.7-stable (LTS)',
       '1.8': '1.8-stable (LTS)',
-      '1.9': '1.9-stable',
       '2.0': '2.0-stable (LTS)',
       '2.1': '2.1-stable',
       '2.2': '2.2-stable (LTS)'
@@ -28,25 +27,19 @@ angular.module('haproxy', [])
     // + means latest version, - means a stable version
     var matrix = {
       // Debian
-      jessie:  {                           '1.6': 'hdn+', '1.7': 'hdn+',
-                 '1.8': 'hdn+' },
-      stretch: {                           '1.6': 'hdn+', '1.7': 'official-|hdn+',
-                 '1.8': 'backports+|hdn+', '1.9': 'hdn+', '2.0': 'hdn+',
-                 '2.1': 'hdn+' },
-      buster:  { '1.8': 'official-|hdn+',                 '2.0': 'backport+|hdn+',
-                 '2.1': 'hdn+',            '2.2': 'hdn+' },
-      sid:     {                                          '2.0': 'official+',
-                                           '2.2': 'experimental' },
+      jessie:  { '1.6': 'hdn+',            '1.7': 'hdn+',            '1.8': 'hdn+' },
+      stretch: { '1.6': 'hdn+',            '1.7': 'official-|hdn+',  '1.8': 'backports+|hdn+',
+                 '2.0': 'hdn+',            '2.1': 'hdn+' },
+      buster:  {                                                     '1.8': 'official-|hdn+',
+                 '2.0': 'backport+|hdn+',  '2.1': 'hdn+',            '2.2': 'hdn+' },
+      sid:     { '2.0': 'official+',                                 '2.2': 'experimental' },
       // Ubuntu
-      trusty:  {                           '1.6': 'ppa+',           '1.7': 'ppa+',
-                 '1.8': 'ppa+' },
-      xenial:  {                           '1.6': 'official-|ppa+', '1.7': 'ppa+',
-                 '1.8': 'ppa+',            '1.9': 'ppa+',           '2.0': 'ppa+' },
-      bionic:  {                                                    '1.7': 'ppa+',
-                 '1.8': 'official-|ppa+',  '1.9': 'ppa+',           '2.0': 'ppa+',
-                 '2.1': 'ppa+',            '2.2': 'ppa+' },
-      focal:   {                                                    '2.0': 'official-|ppa+',
-                 '2.1': 'ppa+',            '2.2': 'ppa+' }
+      trusty:  { '1.6': 'ppa+',            '1.7': 'ppa+',            '1.8': 'ppa+' },
+      xenial:  { '1.6': 'official-|ppa+',  '1.7': 'ppa+',            '1.8': 'ppa+',
+                 '2.0': 'ppa+' },
+      bionic:  { '1.7': 'ppa+',                                      '1.8': 'official-|ppa+',
+                 '2.0': 'ppa+',            '2.1': 'ppa+',            '2.2': 'ppa+' },
+      focal:   { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+' }
     };
 
     // Helper function to select the appropriate mirror and distribution
