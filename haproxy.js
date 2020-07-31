@@ -17,8 +17,8 @@ angular.module('haproxy', [])
       }
     };
     $scope.versions = {
-      '1.6': '1.6-stable (LTS)',
-      '1.7': '1.7-stable (LTS)',
+      '1.6': '1.6-stable',
+      '1.7': '1.7-stable',
       '1.8': '1.8-stable (LTS)',
       '2.0': '2.0-stable (LTS)',
       '2.1': '2.1-stable',
