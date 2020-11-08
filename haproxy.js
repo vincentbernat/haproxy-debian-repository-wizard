@@ -13,7 +13,8 @@ angular.module('haproxy', [])
         trusty: 'Trusty (14.04 LTS)',
         xenial: 'Xenial (16.04 LTS)',
         bionic: 'Bionic (18.04 LTS)',
-        focal:  'Focal (20.04 LTS)'
+        focal:  'Focal (20.04 LTS)',
+        groovy:  'Groovy (20.10)'
       }
     };
     $scope.versions = {
@@ -40,7 +41,8 @@ angular.module('haproxy', [])
                  '2.0': 'ppa+' },
       bionic:  { '1.7': 'ppa+',                                      '1.8': 'official-|ppa+',
                  '2.0': 'ppa+',            '2.1': 'ppa+',            '2.2': 'ppa+' },
-      focal:   { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+' }
+      focal:   { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+' },
+      groovy:  {                                                     '2.2': 'official-' }
     };
 
     // Helper function to select the appropriate mirror and distribution
