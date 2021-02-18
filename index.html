@@ -108,16 +108,21 @@
             </div>
 
             <!-- Debian haproxy.debian.net "PPA" -->
-            <div ng-show="solution.distribution == 'hdn'">
+            <div ng-show="solution.distribution == 'hdn'" ng-switch="selected.release">
                 <p>
                     You need to enable a dedicated repository:
                 </p>
-                <!-- This should be replaced by use of Signed-By but this is not supported by Jessie -->
-                <pre>
+                <pre ng-switch-when="jessie">
+# curl https://haproxy.debian.net/bernat.debian.org.gpg > \
+      /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
+# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main > \
+      /etc/apt/sources.list.d/haproxy.list</pre>
+                <pre ng-switch-default>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg | \
-      apt-key add -
-# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main | \
-      tee /etc/apt/sources.list.d/haproxy.list</pre>
+      gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
+# echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
+      http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main > \
+      /etc/apt/sources.list.d/haproxy.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
