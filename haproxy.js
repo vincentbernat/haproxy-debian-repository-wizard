@@ -30,7 +30,7 @@ angular.module('haproxy', [])
     var matrix = {
       // Debian
       jessie:  { '1.6': 'hdn+',            '1.7': 'hdn+',            '1.8': 'hdn+' },
-      stretch: { '1.6': 'hdn+',            '1.7': 'official-|hdn+',  '1.8': 'backports+|hdn+',
+      stretch: { '1.6': 'hdn+',            '1.7': 'official-|hdn+',  '1.8': 'backports-|hdn+',
                  '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'hdn+' },
       buster:  {                                                     '1.8': 'official-|hdn+',
                  '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'backports+|hdn+',
