@@ -52,8 +52,8 @@
             <div ng-show="solution.distribution == 'experimental'">
                 <p>You need to enable the <em>experimental</em> repository:</p>
                 <pre>
-# echo deb {{ debian('experimental') }} main | \
-      tee /etc/apt/sources.list.d/experimental.list</pre>
+# echo deb {{ debian('experimental') }} main \
+      > /etc/apt/sources.list.d/experimental.list</pre>
                 <p>Then, use the following commands:</p>
                 <pre>
 # apt-get update
@@ -70,14 +70,14 @@
                 </p>
                 <div ng-switch-when="Debian">
                     <pre>
-# echo deb {{ debian(selected.release, solution.distribution) }} main | \
-      tee /etc/apt/sources.list.d/backports.list<span ng-show="solution.distribution.indexOf('-sloppy') > 0">
-# echo deb {{ debian(selected.release, solution.distribution.replace('-sloppy', '')) }} main | \
-      tee -a /etc/apt/sources.list.d/backports.list</span></pre>
+# echo deb {{ debian(selected.release, solution.distribution) }} main \
+      > /etc/apt/sources.list.d/backports.list<span ng-show="solution.distribution.indexOf('-sloppy') > 0">
+# echo deb {{ debian(selected.release, solution.distribution.replace('-sloppy', '')) }} main \
+      >> /etc/apt/sources.list.d/backports.list</span></pre>
                 </div>
                 <pre ng-switch-when="Ubuntu">
-# echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe | \
-      tee /etc/apt/sources.list.d/backports.list</pre>
+# echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe \
+      > /etc/apt/sources.list.d/backports.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
@@ -113,16 +113,16 @@
                     You need to enable a dedicated repository:
                 </p>
                 <pre ng-switch-when="jessie">
-# curl https://haproxy.debian.net/bernat.debian.org.gpg > \
-      /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
-# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main > \
-      /etc/apt/sources.list.d/haproxy.list</pre>
+# curl https://haproxy.debian.net/bernat.debian.org.gpg \
+      > /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
+# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
+      > /etc/apt/sources.list.d/haproxy.list</pre>
                 <pre ng-switch-default>
-# curl https://haproxy.debian.net/bernat.debian.org.gpg | \
-      gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
+# curl https://haproxy.debian.net/bernat.debian.org.gpg \
+      | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
 # echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
-      http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main > \
-      /etc/apt/sources.list.d/haproxy.list</pre>
+      http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
+      > /etc/apt/sources.list.d/haproxy.list</pre>
                 <p>
                     Then, use the following commands:
                 </p>
