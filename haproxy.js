@@ -10,11 +10,12 @@ angular.module('haproxy', [])
         sid:      'Sid (unstable)'
       },
       Ubuntu: {
-        trusty: 'Trusty (14.04 LTS)',
-        xenial: 'Xenial (16.04 LTS)',
-        bionic: 'Bionic (18.04 LTS)',
-        focal:  'Focal (20.04 LTS)',
-        groovy:  'Groovy (20.10)'
+        trusty:  'Trusty (14.04 LTS)',
+        xenial:  'Xenial (16.04 LTS)',
+        bionic:  'Bionic (18.04 LTS)',
+        focal:   'Focal (20.04 LTS)',
+        groovy:  'Groovy (20.10)',
+        hirsute: 'Hirsute (21.04)'
       }
     };
     $scope.versions = {
@@ -46,7 +47,8 @@ angular.module('haproxy', [])
                   '2.3': 'ppa+' },
       focal:    { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+',
                   '2.3': 'ppa+' },
-      groovy:   {                                                     '2.2': 'official-' }
+      groovy:   {                                                     '2.2': 'official-' },
+      hirsute:  {                                                     '2.2': 'official-' }
     };
 
     // Helper function to select the appropriate mirror and distribution
