@@ -45,9 +45,9 @@ angular.module('haproxy', [])
                   '2.0': 'ppa+' },
       bionic:   { '1.7': 'ppa+',                                      '1.8': 'official-|ppa+',
                   '2.0': 'ppa+',            '2.1': 'ppa+',            '2.2': 'ppa+',
-                  '2.3': 'ppa+' },
+                  '2.3': 'ppa+',            '2.4': 'ppa+' },
       focal:    { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+',
-                  '2.3': 'ppa+' },
+                  '2.3': 'ppa+',            '2.4': 'ppa+' },
       groovy:   {                                                     '2.2': 'official-' },
       hirsute:  {                                                     '2.2': 'official-' }
     };
