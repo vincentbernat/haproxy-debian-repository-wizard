@@ -35,7 +35,7 @@ angular.module('haproxy', [])
                   '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'hdn+' },
       buster:   {                                                     '1.8': 'official-|hdn+',
                   '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'backports-|hdn+',
-                                                                      '2.3': 'hdn+' },
+                  '2.3': 'hdn+',            '2.4': 'hdn+' },
       bullseye: {                                                     '2.2': 'official-' },
       sid:      {                                                     '2.2': 'official+',
                                             '2.4': 'experimental'},
