@@ -38,7 +38,7 @@ angular.module('haproxy', [])
                   '2.3': 'hdn+',            '2.4': 'hdn+' },
       bullseye: { '2.2': 'official-',       '2.4': 'hdn+' },
       sid:      {                                                     '2.2': 'official+',
-                                            '2.4': 'experimental'},
+                                            '2.4': 'experimental' },
       // Ubuntu
       trusty:   { '1.6': 'ppa+',            '1.7': 'ppa+',            '1.8': 'ppa+' },
       xenial:   { '1.6': 'official-|ppa+',  '1.7': 'ppa+',            '1.8': 'ppa+',
