@@ -30,11 +30,12 @@ angular.module('haproxy', [])
     };
     // + means latest version, - means a stable version
     var matrix = {
+      // BEGIN-MATRIX
       // Debian
       stretch:  { '1.6': 'hdn+',            '1.7': 'official-|hdn+',  '1.8': 'hdn+',
                   '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'hdn+' },
       buster:   {                                                     '1.8': 'official-|hdn+',
-                  '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'backports-|hdn+',
+                  '2.0': 'hdn+',            '2.1': 'hdn+',            '2.2': 'bpo-|hdn+',
                   '2.3': 'hdn+',            '2.4': 'hdn+' },
       bullseye: { '2.2': 'official-',       '2.4': 'hdn+' },
       sid:      {                                                     '2.2': 'official+',
@@ -50,6 +51,7 @@ angular.module('haproxy', [])
                   '2.3': 'ppa+',            '2.4': 'ppa+' },
       groovy:   {                                                     '2.2': 'official-' },
       hirsute:  {                                                     '2.2': 'official-' }
+      // END-MATRIX
     };
 
     // Helper function to select the appropriate mirror and distribution
