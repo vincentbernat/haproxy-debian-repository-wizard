@@ -115,12 +115,12 @@
                 <pre ng-switch-when="jessie">
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       > /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
-# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
+# echo deb [arch=amd64] http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
       > /etc/apt/sources.list.d/haproxy.list</pre>
                 <pre ng-switch-default>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
-# echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
+# echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg arch=amd64]" \
       http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
       > /etc/apt/sources.list.d/haproxy.list</pre>
                 <p>
