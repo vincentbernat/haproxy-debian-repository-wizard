@@ -15,7 +15,8 @@ angular.module('haproxy', [])
         bionic:  'Bionic (18.04 LTS)',
         focal:   'Focal (20.04 LTS)',
         groovy:  'Groovy (20.10)',
-        hirsute: 'Hirsute (21.04)'
+        hirsute: 'Hirsute (21.04)',
+        impish:  'Impish (21.10)'
       }
     };
     $scope.versions = {
@@ -49,7 +50,8 @@ angular.module('haproxy', [])
       focal:    { '2.0': 'official-|ppa+',  '2.1': 'ppa+',            '2.2': 'ppa+',
                   '2.3': 'ppa+',            '2.4': 'ppa+' },
       groovy:   {                                                     '2.2': 'official-' },
-      hirsute:  {                                                     '2.2': 'official-' }
+      hirsute:  {                                                     '2.2': 'official-' },
+      impish:   {                                                     '2.2': 'official-' }
       // END-MATRIX
     };
 
