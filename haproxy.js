@@ -20,7 +20,6 @@ angular.module('haproxy', [])
       }
     };
     $scope.versions = {
-      '1.6': '1.6-stable',
       '1.7': '1.7-stable',
       '1.8': '1.8-stable (LTS)',
       '2.0': '2.0-stable (LTS)',
@@ -33,7 +32,7 @@ angular.module('haproxy', [])
     var matrix = {
       // BEGIN-MATRIX
       // Debian
-      stretch:  { '1.6': 'hdn+',            '1.7': 'official-|hdn+',  '1.8': 'hdn+',
+      stretch:  {                           '1.7': 'official-|hdn+',  '1.8': 'hdn+',
                   '2.0': 'hdn+',                                      '2.2': 'hdn+' },
       buster:   {                                                     '1.8': 'official-|hdn+',
                   '2.0': 'hdn+',                                      '2.2': 'bpo-|hdn+',
@@ -41,8 +40,8 @@ angular.module('haproxy', [])
       bullseye: { '2.2': 'official-',       '2.4': 'bpo+|hdn+',       '2.5': 'hdn+' },
       sid:      {                           '2.4': 'official+',       '2.5': 'experimental+' },
       // Ubuntu
-      trusty:   { '1.6': 'ppa+',            '1.7': 'ppa+',            '1.8': 'ppa+' },
-      xenial:   { '1.6': 'official-|ppa+',  '1.7': 'ppa+',            '1.8': 'ppa+',
+      trusty:   {                           '1.7': 'ppa+',            '1.8': 'ppa+' },
+      xenial:   {                           '1.7': 'ppa+',            '1.8': 'ppa+',
                   '2.0': 'ppa+' },
       bionic:   { '1.7': 'ppa+',                                      '1.8': 'official-|ppa+',
                   '2.0': 'ppa+',                                      '2.2': 'ppa+',
