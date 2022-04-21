@@ -14,7 +14,8 @@ angular.module('haproxy', [])
         xenial:  'Xenial (16.04 LTS)',
         bionic:  'Bionic (18.04 LTS)',
         focal:   'Focal (20.04 LTS)',
-        impish:  'Impish (21.10)'
+        impish:  'Impish (21.10)',
+        jammy:   'Jammy (22.04)'
       }
     };
     $scope.versions = {
@@ -58,7 +59,8 @@ angular.module('haproxy', [])
                   '2.3': 'ppa+',
                   '2.4': 'ppa+',
                   '2.5': 'ppa+' },
-      impish:   { '2.2': 'official-' }
+      impish:   { '2.2': 'official-' },
+      jammy:    { '2.4': 'official-' }
       // END-MATRIX
     };
 
