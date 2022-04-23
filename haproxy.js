@@ -61,7 +61,10 @@ angular
         2.5: "ppa+",
       },
       impish: { 2.2: "official-" },
-      jammy: { 2.4: "official-|ppa+" },
+      jammy: {
+        2.4: "official-|ppa+",
+        2.5: "ppa+",
+      },
       // END-MATRIX
     };
 
