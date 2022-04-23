@@ -16,7 +16,7 @@ angular
         bionic: "Bionic (18.04 LTS)",
         focal: "Focal (20.04 LTS)",
         impish: "Impish (21.10)",
-        jammy: "Jammy (22.04)",
+        jammy: "Jammy (22.04 LTS)",
       },
     };
     $scope.versions = {
