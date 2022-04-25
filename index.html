@@ -1,157 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>HAProxy packages for Debian and Ubuntu</title>
-        <link rel="stylesheet" href="haproxy.css">
-        <script src="angular.js"></script>
-        <script src="haproxy.js"></script>
-    </head>
-    <body>
-        <article class="app" ng-app="haproxy" ng-controller="InstructionsCtrl" ng-cloak>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>HAProxy packages for Debian and Ubuntu</title>
+    <link rel="stylesheet" href="haproxy.css" />
+    <script src="angular.js"></script>
+    <script src="haproxy.js"></script>
+  </head>
+  <body>
+    <article
+      class="app"
+      ng-app="haproxy"
+      ng-controller="InstructionsCtrl"
+      ng-cloak
+    >
+      <h1>Debian/Ubuntu HAProxy packages</h1>
+      <p>
+        The Debian HAProxy packaging team provides various versions of
+        <a href="http://www.haproxy.org">HAProxy</a> packages for use on
+        different Debian or Ubuntu systems. The following wizard helps you to
+        find the package suitable for your system.
+      </p>
+      <blockquote>
+        I am running
+        <select
+          ng-options="name as name for (name, dist) in distributions"
+          ng-change="selected.release = null"
+          ng-model="selected.distribution"
+        ></select>
+        <select
+          ng-options="release as name for (release, name) in distributions[selected.distribution]"
+          ng-model="selected.release"
+        ></select>
+        and I want to install <i>HAProxy</i> version
+        <select
+          ng-options="version as name for (version, name) in versions"
+          ng-model="selected.version"
+        ></select
+        >.
+      </blockquote>
 
-        <h1>Debian/Ubuntu HAProxy packages</h1>
-        <p>
-            The Debian HAProxy packaging team provides various versions of
-            <a href="http://www.haproxy.org">HAProxy</a> packages for use on different Debian or Ubuntu
-            systems. The following wizard helps you to find the package
-            suitable for your system.
-        </p>
-        <blockquote>
-            I am running
-            <select ng-options="name as name for (name, dist) in distributions"
-                    ng-change="selected.release = null"
-                    ng-model="selected.distribution">
-            </select>
-            <select ng-options="release as name for (release, name) in distributions[selected.distribution]"
-                    ng-model="selected.release">
-            </select>
-            and I want to install <i>HAProxy</i> version
-            <select ng-options="version as name for (version, name) in versions"
-                    ng-model="selected.version">
-            </select>.
-        </blockquote>
+      <div ng-repeat="solution in solutions() track by solution.id">
+        <h2>
+          <span
+            ng-if="$first || solutions()[$index-1].version != solution.version"
+            >Instructions</span
+          >
+          <span
+            ng-if="!$first && solutions()[$index-1].version == solution.version"
+            >Alternative instructions</span
+          >
+          <span ng-if="solution.version">for {{solution.version}} release</span>
+        </h2>
 
-        <div ng-repeat="solution in solutions() track by solution.id">
-            <h2>
-                <span ng-if="$first || solutions()[$index-1].version != solution.version">Instructions</span>
-                <span ng-if="!$first && solutions()[$index-1].version == solution.version">Alternative instructions</span>
-                <span ng-if="solution.version">for {{solution.version}} release</span>
-            </h2>
-
-            <!-- Official repository -->
-            <div ng-show="solution.distribution == 'official'">
-                <p>You can install it with the following commands:</p>
-                <pre>
+        <!-- Official repository -->
+        <div ng-show="solution.distribution == 'official'">
+          <p>You can install it with the following commands:</p>
+          <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\*</pre>
-            </div>
+# apt-get install haproxy={{ selected.version }}.\*</pre
+          >
+        </div>
 
-            <div ng-show="solution.distribution == 'experimental'">
-                <p>You need to enable the <em>experimental</em> repository:</p>
-                <pre>
+        <div ng-show="solution.distribution == 'experimental'">
+          <p>You need to enable the <em>experimental</em> repository:</p>
+          <pre>
 # echo deb {{ debian('experimental') }} main \
-      > /etc/apt/sources.list.d/experimental.list</pre>
-                <p>Then, use the following commands:</p>
-                <pre>
+      > /etc/apt/sources.list.d/experimental.list</pre
+          >
+          <p>Then, use the following commands:</p>
+          <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\*</pre>
-            </div>
+# apt-get install haproxy={{ selected.version }}.\*</pre
+          >
+        </div>
 
-            <!-- Backports -->
-            <div ng-show="solution.distribution.indexOf('bpo') == 0"
-                 ng-switch="selected.distribution">
-                <p>
-                    You need to enable the
-                    <a ng-switch-when="Debian" href="http://backports.debian.org/Instructions/">backports repository</a>
-                    <a ng-switch-when="Ubuntu" href="https://help.ubuntu.com/community/UbuntuBackports">backports repository</a>:
-                </p>
-                <div ng-switch-when="Debian">
-                    <pre>
+        <!-- Backports -->
+        <div
+          ng-show="solution.distribution.indexOf('bpo') == 0"
+          ng-switch="selected.distribution"
+        >
+          <p>
+            You need to enable the
+            <a
+              ng-switch-when="Debian"
+              href="http://backports.debian.org/Instructions/"
+              >backports repository</a
+            >
+            <a
+              ng-switch-when="Ubuntu"
+              href="https://help.ubuntu.com/community/UbuntuBackports"
+              >backports repository</a
+            >:
+          </p>
+          <div ng-switch-when="Debian">
+            <pre>
 # echo deb {{ debian(selected.release, solution.distribution) }} main \
       > /etc/apt/sources.list.d/backports.list<span ng-show="solution.distribution.indexOf('-sloppy') > 0">
 # echo deb {{ debian(selected.release, solution.distribution.replace('-sloppy', '')) }} main \
       >> /etc/apt/sources.list.d/backports.list</span></pre>
-                </div>
-                <pre ng-switch-when="Ubuntu">
+          </div>
+          <pre ng-switch-when="Ubuntu">
 # echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe \
-      > /etc/apt/sources.list.d/backports.list</pre>
-                <p>
-                    Then, use the following commands:
-                </p>
-                <pre>
+      > /etc/apt/sources.list.d/backports.list</pre
+          >
+          <p>Then, use the following commands:</p>
+          <pre>
 # apt-get update
 # apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}<span ng-show="solution.distribution.indexOf('-sloppy') > 0"> -t {{ selected.release }}-{{ solution.distribution.replace('-sloppy', '') }}</span></pre>
-            </div>
+        </div>
 
-            <!-- Not available -->
-            <div ng-show="solution.distribution == 'unavailable'">
-                <p>Sorry, there is no option available for you.</p>
-            </div>
+        <!-- Not available -->
+        <div ng-show="solution.distribution == 'unavailable'">
+          <p>Sorry, there is no option available for you.</p>
+        </div>
 
-            <!-- Ubuntu PPA -->
-            <div ng-show="solution.distribution == 'ppa'">
-                <p>
-                    You need to enable a <a href="https://launchpad.net/~vbernat/+archive/haproxy-{{ selected.version }}">dedicated
-                    PPA</a> with the following command:
-                </p>
-                <pre>
+        <!-- Ubuntu PPA -->
+        <div ng-show="solution.distribution == 'ppa'">
+          <p>
+            You need to enable a
+            <a
+              href="https://launchpad.net/~vbernat/+archive/haproxy-{{ selected.version }}"
+              >dedicated PPA</a
+            >
+            with the following command:
+          </p>
+          <pre>
 # apt-get install --no-install-recommends software-properties-common
-# add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}</pre>
-                <p>
-                    Then, use the following command:
-                </p>
-                <pre>
-# apt-get install haproxy={{ selected.version }}.\*</pre>
-            </div>
+# add-apt-repository ppa:vbernat/haproxy-{{ selected.version }}</pre
+          >
+          <p>Then, use the following command:</p>
+          <pre># apt-get install haproxy={{ selected.version }}.\*</pre>
+        </div>
 
-            <!-- Debian haproxy.debian.net "PPA" -->
-            <div ng-show="solution.distribution == 'hdn'" ng-switch="selected.release">
-                <p>
-                    You need to enable a dedicated repository:
-                </p>
-                <pre ng-switch-when="jessie">
+        <!-- Debian haproxy.debian.net "PPA" -->
+        <div
+          ng-show="solution.distribution == 'hdn'"
+          ng-switch="selected.release"
+        >
+          <p>You need to enable a dedicated repository:</p>
+          <pre ng-switch-when="jessie">
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       > /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
 # echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
-      > /etc/apt/sources.list.d/haproxy.list</pre>
-                <pre ng-switch-default>
+      > /etc/apt/sources.list.d/haproxy.list</pre
+          >
+          <pre ng-switch-default>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
 # echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
       http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
-      > /etc/apt/sources.list.d/haproxy.list</pre>
-                <p>
-                    Then, use the following commands:
-                </p>
-                <pre>
+      > /etc/apt/sources.list.d/haproxy.list</pre
+          >
+          <p>Then, use the following commands:</p>
+          <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\*</pre>
-            </div>
-
-            <!-- Stable or latest? -->
-            <p ng-show="solution.version == 'latest'">
-                You will get the <em>latest</em> release of HAProxy {{ selected.version }}
-                <span ng-switch="solution.distribution">
-                    <span ng-switch-when="ppa">(and stick to this branch).</span>
-                    <span ng-switch-when="hdn">(and stick to this branch).</span>
-                    <span ng-switch-default>(or a later version).</span>
-                </span>
-            </p>
-            <p ng-show="solution.version == 'stable'">
-                You will get a <em>stable</em> release of HAProxy {{
-                selected.version }}: you may not get the latest
-                version but important fixes from later versions are
-                included. Moreover, regressions are unlikely.
-            </p>
-
+# apt-get install haproxy={{ selected.version }}.\*</pre
+          >
         </div>
 
-        </article>
+        <!-- Stable or latest? -->
+        <p ng-show="solution.version == 'latest'">
+          You will get the <em>latest</em> release of HAProxy {{
+          selected.version }}
+          <span ng-switch="solution.distribution">
+            <span ng-switch-when="ppa">(and stick to this branch).</span>
+            <span ng-switch-when="hdn">(and stick to this branch).</span>
+            <span ng-switch-default>(or a later version).</span>
+          </span>
+        </p>
+        <p ng-show="solution.version == 'stable'">
+          You will get a <em>stable</em> release of HAProxy {{ selected.version
+          }}: you may not get the latest version but important fixes from later
+          versions are included. Moreover, regressions are unlikely.
+        </p>
+      </div>
+    </article>
 
-        <address>
-            Website <a href="https://github.com/vincentbernat/haproxy-debian-repository-wizard">source code</a>
-        </address>
-    </body>
+    <address>
+      Website
+      <a
+        href="https://github.com/vincentbernat/haproxy-debian-repository-wizard"
+        >source code</a
+      >
+    </address>
+  </body>
 </html>
