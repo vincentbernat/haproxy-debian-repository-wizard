@@ -35,12 +35,12 @@ angular
       buster: {
         1.8: "official-|hdn+",
         "2.0": "hdn+",
-        2.2: "bpo-|hdn+",
+        2.2: "backports-|hdn+",
         2.3: "hdn+",
         2.4: "hdn+",
         2.5: "hdn+",
       },
-      bullseye: { 2.2: "official-", 2.4: "bpo+|hdn+", 2.5: "hdn+" },
+      bullseye: { 2.2: "official-", 2.4: "backports+|hdn+", 2.5: "hdn+" },
       sid: { 2.4: "official+", 2.5: "experimental+" },
       // Ubuntu
       trusty: { 1.8: "ppa+" },
