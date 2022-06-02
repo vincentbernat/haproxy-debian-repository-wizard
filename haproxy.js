@@ -26,6 +26,7 @@ angular
       2.3: "2.3-stable",
       2.4: "2.4-stable (LTS)",
       2.5: "2.5-stable",
+      2.6: "2.6-stable (LTS)",
     };
     // + means latest version, - means a stable version
     var matrix = {
@@ -41,7 +42,7 @@ angular
         2.5: "hdn+",
       },
       bullseye: { 2.2: "official-", 2.4: "backports+|hdn+", 2.5: "hdn+" },
-      sid: { 2.4: "official+", 2.5: "experimental+" },
+      sid: { 2.4: "official+", 2.6: "experimental+" },
       // Ubuntu
       trusty: { 1.8: "ppa+" },
       xenial: { 1.8: "ppa+", "2.0": "ppa+" },
