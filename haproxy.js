@@ -41,7 +41,12 @@ angular
         2.4: "hdn+",
         2.5: "hdn+",
       },
-      bullseye: { 2.2: "official-", 2.4: "backports+|hdn+", 2.5: "hdn+" },
+      bullseye: {
+        2.2: "official-",
+        2.4: "backports+|hdn+",
+        2.5: "hdn+",
+        2.6: "hdn+",
+      },
       sid: { 2.4: "official+", 2.6: "experimental+" },
       // Ubuntu
       trusty: { 1.8: "ppa+" },
@@ -60,11 +65,13 @@ angular
         2.3: "ppa+",
         2.4: "ppa+",
         2.5: "ppa+",
+        2.6: "ppa+",
       },
       impish: { 2.2: "official-" },
       jammy: {
         2.4: "official-|ppa+",
         2.5: "ppa+",
+        2.6: "ppa+",
       },
       // END-MATRIX
     };
