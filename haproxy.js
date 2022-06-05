@@ -1,125 +1,127 @@
-angular
-  .module("haproxy", [])
-  .controller("InstructionsCtrl", function ($scope, $location) {
-    "use strict";
+import { createApp, reactive } from "./petite-vue.es.js";
 
-    $scope.distributions = {
-      Debian: {
-        stretch: "Stretch (9)",
-        buster: "Buster (10)",
-        bullseye: "Bullseye (11)",
-        sid: "Sid (unstable)",
-      },
-      Ubuntu: {
-        trusty: "Trusty (14.04 LTS)",
-        xenial: "Xenial (16.04 LTS)",
-        bionic: "Bionic (18.04 LTS)",
-        focal: "Focal (20.04 LTS)",
-        impish: "Impish (21.10)",
-        jammy: "Jammy (22.04 LTS)",
-      },
-    };
-    $scope.versions = {
-      1.8: "1.8-stable (LTS)",
-      "2.0": "2.0-stable (LTS)",
-      2.2: "2.2-stable (LTS)",
-      2.3: "2.3-stable",
-      2.4: "2.4-stable (LTS)",
-      2.5: "2.5-stable",
-      2.6: "2.6-stable (LTS)",
-    };
-    // + means latest version, - means a stable version
-    var matrix = {
-      // BEGIN-MATRIX
-      // Debian
-      stretch: { 1.8: "hdn+", "2.0": "hdn+", 2.2: "hdn+" },
-      buster: {
-        1.8: "official-|hdn+",
-        "2.0": "hdn+",
-        2.2: "backports-|hdn+",
-        2.3: "hdn+",
-        2.4: "hdn+",
-        2.5: "hdn+",
-      },
-      bullseye: {
-        2.2: "official-",
-        2.4: "backports+|hdn+",
-        2.5: "hdn+",
-        2.6: "hdn+",
-      },
-      sid: { 2.4: "official+", 2.6: "experimental+" },
-      // Ubuntu
-      trusty: { 1.8: "ppa+" },
-      xenial: { 1.8: "ppa+", "2.0": "ppa+" },
-      bionic: {
-        1.8: "official-|ppa+",
-        "2.0": "ppa+",
-        2.2: "ppa+",
-        2.3: "ppa+",
-        2.4: "ppa+",
-        2.5: "ppa+",
-      },
-      focal: {
-        "2.0": "official-|ppa+",
-        2.2: "ppa+",
-        2.3: "ppa+",
-        2.4: "ppa+",
-        2.5: "ppa+",
-        2.6: "ppa+",
-      },
-      impish: { 2.2: "official-" },
-      jammy: {
-        2.4: "official-|ppa+",
-        2.5: "ppa+",
-        2.6: "ppa+",
-      },
-      // END-MATRIX
-    };
+const matrix = {
+  // BEGIN-MATRIX
+  // Debian
+  stretch: { 1.8: "hdn+", "2.0": "hdn+", 2.2: "hdn+" },
+  buster: {
+    1.8: "official-|hdn+",
+    "2.0": "hdn+",
+    2.2: "backports-|hdn+",
+    2.3: "hdn+",
+    2.4: "hdn+",
+    2.5: "hdn+",
+  },
+  bullseye: {
+    2.2: "official-",
+    2.4: "backports+|hdn+",
+    2.5: "hdn+",
+    2.6: "hdn+",
+  },
+  sid: { 2.4: "official+", 2.6: "experimental+" },
+  // Ubuntu
+  trusty: { 1.8: "ppa+" },
+  xenial: { 1.8: "ppa+", "2.0": "ppa+" },
+  bionic: {
+    1.8: "official-|ppa+",
+    "2.0": "ppa+",
+    2.2: "ppa+",
+    2.3: "ppa+",
+    2.4: "ppa+",
+    2.5: "ppa+",
+  },
+  focal: {
+    "2.0": "official-|ppa+",
+    2.2: "ppa+",
+    2.3: "ppa+",
+    2.4: "ppa+",
+    2.5: "ppa+",
+    2.6: "ppa+",
+  },
+  impish: { 2.2: "official-" },
+  jammy: {
+    2.4: "official-|ppa+",
+    2.5: "ppa+",
+    2.6: "ppa+",
+  },
+  // END-MATRIX
+};
 
-    // Helper function to select the appropriate mirror and distribution
-    $scope.debian = function (release, subrelease) {
-      var suffix = "debian";
-      var distribution = subrelease ? [release, subrelease].join("-") : release;
-      return "http://deb.debian.org/" + suffix + " " + distribution;
-    };
+createApp({
+  // Supported distributions
+  distributions: {
+    Debian: {
+      stretch: "Stretch (9)",
+      buster: "Buster (10)",
+      bullseye: "Bullseye (11)",
+      sid: "Sid (unstable)",
+    },
+    Ubuntu: {
+      trusty: "Trusty (14.04 LTS)",
+      xenial: "Xenial (16.04 LTS)",
+      bionic: "Bionic (18.04 LTS)",
+      focal: "Focal (20.04 LTS)",
+      impish: "Impish (21.10)",
+      jammy: "Jammy (22.04 LTS)",
+    },
+  },
 
-    $scope.selected = $location.search() || {};
-    $scope.$on("$locationChangeSuccess", function (event) {
-      $scope.selected = $location.search() || {};
-    });
+  // HAProxy versions
+  versions: {
+    1.8: "1.8-stable (LTS)",
+    "2.0": "2.0-stable (LTS)",
+    2.2: "2.2-stable (LTS)",
+    2.3: "2.3-stable",
+    2.4: "2.4-stable (LTS)",
+    2.5: "2.5-stable",
+    2.6: "2.6-stable (LTS)",
+  },
 
-    $scope.solutions = (function () {
-      var previous = null;
+  // Helper function to build Debian repository URL
+  debian(release, subrelease) {
+    var suffix = "debian";
+    var distribution = subrelease ? [release, subrelease].join("-") : release;
+    return `http://deb.debian.org/${suffix} ${distribution}`;
+  },
 
-      return function () {
-        if (
-          !$scope.selected.distribution ||
-          !$scope.selected.release ||
-          !$scope.selected.version
-        ) {
-          return null;
-        }
-        $location.search("distribution", $scope.selected.distribution);
-        $location.search("release", $scope.selected.release);
-        $location.search("version", $scope.selected.version);
+  // Selected versions
+  selected: {},
 
-        var proposed = (matrix[$scope.selected.release] || {})[
-            $scope.selected.version
-          ],
-          solutions = (proposed || "unavailable").split("|"),
-          current = solutions.map(function (solution) {
-            return {
-              version:
-                { "+": "latest", "-": "stable" }[solution.slice(-1)] || null,
-              distribution: solution.replace(/\+|\-$/, ""),
-              id: solution,
-            };
-          });
-        if (JSON.stringify(previous) === JSON.stringify(current)) {
-          return previous;
-        }
-        previous = current;
-        return current;
-      };
-    })();
-  });
+  // Proposed solutions
+  solutions() {
+    const { distribution, release, version } = this.selected;
+    if (!distribution || !release || !version) return [];
+
+    const proposed = matrix[release]?.[version];
+    const solutions = (proposed ?? "unavailable").split("|");
+    const current = solutions.map((solution) => ({
+      version: { "+": "latest", "-": "stable" }[solution.slice(-1)] ?? null,
+      distribution: solution.replace(/\+|\-$/, ""),
+      id: solution,
+    }));
+    return current;
+  },
+
+  // Put selection in URL
+  updateLocation() {
+    const { distribution, release, version } = this.selected;
+    if (!distribution || !release || !version) return [];
+
+    window.location = `#distribution=${distribution}&release=${release}&version=${version}`;
+  },
+  updateFromLocation() {
+    const location = window.location.hash.slice(1).replace(/^\?+/, "");
+    const { distribution, release, version } = Object.fromEntries(
+      location.split("&").map((v) => v.split("="))
+    );
+    if (distribution && release && version) {
+      this.selected.distribution = distribution;
+      this.selected.release = release;
+      this.selected.version = version;
+    }
+  },
+  mounted() {
+    addEventListener("hashchange", this.updateFromLocation);
+    this.updateFromLocation();
+  },
+}).mount();

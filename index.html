@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width" />
     <title>HAProxy packages for Debian and Ubuntu</title>
     <link rel="stylesheet" href="haproxy.css" />
-    <script src="angular.js"></script>
-    <script src="haproxy.js"></script>
+    <script type="module" src="haproxy.js"></script>
   </head>
   <body>
-    <article
-      class="app"
-      ng-app="haproxy"
-      ng-controller="InstructionsCtrl"
-      ng-cloak
-    >
+    <article v-scope @vue:mounted="mounted">
       <h1>Debian/Ubuntu HAProxy packages</h1>
       <p>
         The Debian HAProxy packaging team provides various versions of
@@ -25,37 +19,52 @@
       <blockquote>
         I am running
         <select
-          ng-options="name as name for (name, dist) in distributions"
-          ng-change="selected.release = null"
-          ng-model="selected.distribution"
-        ></select>
-        <select
-          ng-options="release as name for (release, name) in distributions[selected.distribution]"
-          ng-model="selected.release"
-        ></select>
+          v-model="selected.distribution"
+          @change="selected.release = undefined ; updateLocation()"
+        >
+          <option v-for="(, name) in distributions" :key="name" :value="name">
+            {{ name }}
+          </option>
+        </select>
+        <select v-model="selected.release" @change="updateLocation()">
+          <option
+            v-for="(name, release) in distributions[selected.distribution]"
+            :key="release"
+            :value="release"
+          >
+            {{ name }}
+          </option>
+        </select>
         and I want to install <i>HAProxy</i> version
-        <select
-          ng-options="version as name for (version, name) in versions"
-          ng-model="selected.version"
-        ></select
+        <select v-model="selected.version" @change="updateLocation()">
+          <option
+            v-for="(name, version) in versions"
+            :key="version"
+            :value="version"
+          >
+            {{ name }}
+          </option></select
         >.
       </blockquote>
 
-      <div ng-repeat="solution in solutions() track by solution.id">
+      <div v-for="(solution, index) in solutions()" :key="solution.id">
+        <!-- {{ solution }} -->
         <h2>
           <span
-            ng-if="$first || solutions()[$index-1].version != solution.version"
+            v-if="index === 0 || solutions()[index-1].version != solution.version"
             >Instructions</span
           >
           <span
-            ng-if="!$first && solutions()[$index-1].version == solution.version"
+            v-if="index >= 1 && solutions()[index-1].version == solution.version"
             >Alternative instructions</span
           >
-          <span ng-if="solution.version">for {{solution.version}} release</span>
+          <span v-if="solution.version"
+            >for {{ solution.version }} release</span
+          >
         </h2>
 
         <!-- Official repository -->
-        <div ng-show="solution.distribution == 'official'">
+        <div v-if="solution.distribution == 'official'">
           <p>You can install it with the following commands:</p>
           <pre>
 # apt-get update
@@ -63,7 +72,7 @@
           >
         </div>
 
-        <div ng-show="solution.distribution == 'experimental'">
+        <div v-if="solution.distribution == 'experimental'">
           <p>You need to enable the <em>experimental</em> repository:</p>
           <pre>
 # echo deb {{ debian('experimental') }} main \
@@ -77,47 +86,44 @@
         </div>
 
         <!-- Backports -->
-        <div
-          ng-show="solution.distribution.indexOf('backports') == 0"
-          ng-switch="selected.distribution"
-        >
+        <div v-if="solution.distribution.indexOf('backports') == 0">
           <p>
             You need to enable the
             <a
-              ng-switch-when="Debian"
+              v-if="selected.distribution === 'Debian'"
               href="http://backports.debian.org/Instructions/"
               >backports repository</a
             >
             <a
-              ng-switch-when="Ubuntu"
+              v-if="selected.distribution === 'Ubuntu'"
               href="https://help.ubuntu.com/community/UbuntuBackports"
               >backports repository</a
             >:
           </p>
-          <div ng-switch-when="Debian">
+          <div v-if="selected.distribution === 'Debian'">
             <pre>
 # echo deb {{ debian(selected.release, solution.distribution) }} main \
-      > /etc/apt/sources.list.d/backports.list<span ng-show="solution.distribution.indexOf('-sloppy') > 0">
+      > /etc/apt/sources.list.d/backports.list<span v-if="solution.distribution.indexOf('-sloppy') > 0">
 # echo deb {{ debian(selected.release, solution.distribution.replace('-sloppy', '')) }} main \
       >> /etc/apt/sources.list.d/backports.list</span></pre>
           </div>
-          <pre ng-switch-when="Ubuntu">
+          <pre v-if="selected.distribution === 'Ubuntu'">
 # echo deb http://archive.ubuntu.com/ubuntu {{ selected.release }}-{{ solution.distribution }} main universe \
       > /etc/apt/sources.list.d/backports.list</pre
           >
           <p>Then, use the following commands:</p>
           <pre>
 # apt-get update
-# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}<span ng-show="solution.distribution.indexOf('-sloppy') > 0"> -t {{ selected.release }}-{{ solution.distribution.replace('-sloppy', '') }}</span></pre>
+# apt-get install haproxy={{ selected.version }}.\* -t {{ selected.release }}-{{ solution.distribution }}<span v-if="solution.distribution.indexOf('-sloppy') > 0"> -t {{ selected.release }}-{{ solution.distribution.replace('-sloppy', '') }}</span></pre>
         </div>
 
         <!-- Not available -->
-        <div ng-show="solution.distribution == 'unavailable'">
+        <div v-if="solution.distribution == 'unavailable'">
           <p>Sorry, there is no option available for you.</p>
         </div>
 
         <!-- Ubuntu PPA -->
-        <div ng-show="solution.distribution == 'ppa'">
+        <div v-if="solution.distribution == 'ppa'">
           <p>
             You need to enable a
             <a
@@ -135,18 +141,15 @@
         </div>
 
         <!-- Debian haproxy.debian.net "PPA" -->
-        <div
-          ng-show="solution.distribution == 'hdn'"
-          ng-switch="selected.release"
-        >
+        <div v-if="solution.distribution == 'hdn'">
           <p>You need to enable a dedicated repository:</p>
-          <pre ng-switch-when="jessie">
+          <pre v-if="selected.distribution === 'jessie'">
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       > /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
 # echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
       > /etc/apt/sources.list.d/haproxy.list</pre
           >
-          <pre ng-switch-default>
+          <pre v-else>
 # curl https://haproxy.debian.net/bernat.debian.org.gpg \
       | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
 # echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
@@ -161,16 +164,18 @@
         </div>
 
         <!-- Stable or latest? -->
-        <p ng-show="solution.version == 'latest'">
+        <p v-if="solution.version == 'latest'">
           You will get the <em>latest</em> release of HAProxy {{
           selected.version }}
-          <span ng-switch="solution.distribution">
-            <span ng-switch-when="ppa">(and stick to this branch).</span>
-            <span ng-switch-when="hdn">(and stick to this branch).</span>
-            <span ng-switch-default>(or a later version).</span>
-          </span>
+          <span v-if="selected.release === 'ppa'"
+            >(and stick to this branch).</span
+          >
+          <span v-else-if="selected.release === 'hdn'"
+            >(and stick to this branch).</span
+          >
+          <span v-else>(or a later version).</span>
         </p>
-        <p ng-show="solution.version == 'stable'">
+        <p v-if="solution.version == 'stable'">
           You will get a <em>stable</em> release of HAProxy {{ selected.version
           }}: you may not get the latest version but important fixes from later
           versions are included. Moreover, regressions are unlikely.

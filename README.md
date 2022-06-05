@@ -1,15 +1,10 @@
 # Repository selector for HAProxy
 
-This is a simple [AngularJS][] application to help people chooses the
+This is a simple [petite-vue][] application to help people chooses the
 appropriate repository to download HAProxy. It should be simple enough
 to be modified for other purposes.
 
-To avoid tracking the user, AngularJS is not taken on any CDN. You may
-redownload it with:
-
-    wget https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js
-
-[AngularJS]: https://angularjs.org/
+[petite-vue]: https://github.com/vuejs/petite-vue
 
 ## License
 
