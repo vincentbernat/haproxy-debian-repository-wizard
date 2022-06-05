@@ -105,9 +105,9 @@ createApp({
   // Put selection in URL
   updateLocation() {
     const { distribution, release, version } = this.selected;
-    if (!distribution || !release || !version) return [];
-
-    window.location = `#distribution=${distribution}&release=${release}&version=${version}`;
+    if (distribution && release && version) {
+      window.location = `#distribution=${distribution}&release=${release}&version=${version}`;
+    }
   },
   updateFromLocation() {
     const location = window.location.hash.slice(1).replace(/^\?+/, "");
