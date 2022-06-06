@@ -1,88 +1,99 @@
 html {
-    font-size: 20px;
-    line-height: 32px;
+  font-size: 20px;
+  line-height: 32px;
 }
 article {
-    max-width: 40em;
-    margin: 0 auto;
+  max-width: 40em;
+  margin: 0 auto;
+}
+article > * {
+  display: none;
+}
+article.js > *,
+article > h1,
+article > noscript {
+  display: inherit;
 }
 address {
-    position: fixed;
-    right: 1em;
-    bottom: 0;
-    width: 15em;
-    margin-top: 2em;
-    font-size: small;
-    text-align: right;
-    color: gray;
+  position: fixed;
+  right: 1em;
+  bottom: 0;
+  width: 15em;
+  margin-top: 2em;
+  font-size: small;
+  text-align: right;
+  color: gray;
 }
 
 /* Headers */
-h1, h2 {
-    font-family: Tahoma, Verdana, Segoe, Helvetica, sans-serif;
-    font-weight: bold;
-    color: #B80F28;
+h1,
+h2 {
+  font-family: Tahoma, Verdana, Segoe, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #b80f28;
 }
 h1 {
-    font-size: 1.6em;
+  font-size: 1.6em;
 }
 h2 {
-    margin-top: 3em;
-    font-size: 1.25em;
+  margin-top: 3em;
+  font-size: 1.25em;
 }
 
 /* Normal text */
-p, blockquote, select {
-    font-family: Georgia,
-                 Times,
-                 'Times New Roman',
-                 serif;
-    font-size: inherit;
+p,
+blockquote,
+select {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: inherit;
 }
 blockquote {
-    margin-left: 4em;
-    font-style: italic;
+  margin-left: 4em;
+  font-style: italic;
 }
 blockquote:before {
-    display: block;
-    position: relative;
-    left: -0.7em;
-    margin-bottom: -0.7em;
-    font-size: 4.5em;
-    line-height: 1;
-    height: 1em;
-    width: 1em;
-    overflow: hidden;
-    content: '«';
+  display: block;
+  position: relative;
+  left: -0.7em;
+  margin-bottom: -0.7em;
+  font-size: 4.5em;
+  line-height: 1;
+  height: 1em;
+  width: 1em;
+  overflow: hidden;
+  content: "«";
 }
 select {
-    min-width: 2em;
+  min-width: 2em;
 }
 
 /* Code blocks */
 pre {
-    box-sizing: border-box;
-    margin-left: -2em;
-    margin-right: -2em;
-    padding: 0.3em 1em;
-    max-width: 44em;
-    overflow-y: auto;
+  box-sizing: border-box;
+  margin-left: -2em;
+  margin-right: -2em;
+  padding: 0.3em 1em;
+  max-width: 44em;
+  overflow-y: auto;
 
-    color: #f8f8f8;
-    font-family: Consolas, Monaco, monospace;
-    background-color: #333;
-    border-radius: 5px;
+  color: #f8f8f8;
+  font-family: Consolas, Monaco, monospace;
+  background-color: #333;
+  border-radius: 5px;
 }
 @media (max-width: 880px) {
-    pre {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 0 0.2em;
-        width: 100%;
-    }
+  pre {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 0.2em;
+    width: 100%;
+  }
 }
 
 /* Links */
-a, a:hover, a:active, a:visited {
-    color: #B80F28;
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #b80f28;
 }

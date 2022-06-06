@@ -1,4 +1,4 @@
-import { createApp, reactive } from "./petite-vue.es.js";
+import { createApp, reactive, nextTick } from "./petite-vue.es.js";
 
 const matrix = {
   // BEGIN-MATRIX
@@ -120,8 +120,9 @@ createApp({
       this.selected.version = version;
     }
   },
-  mounted() {
+  mounted(el) {
     addEventListener("hashchange", this.updateFromLocation);
     this.updateFromLocation();
+    nextTick(() => el.classList.add("js"));
   },
 }).mount();

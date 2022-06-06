@@ -8,8 +8,28 @@
     <script type="module" src="haproxy.js"></script>
   </head>
   <body>
-    <article v-scope @vue:mounted="mounted">
+    <article v-scope @vue:mounted="mounted($el)">
       <h1>Debian/Ubuntu HAProxy packages</h1>
+      <noscript>
+        <p>
+          This page requires JavaScript. Alternatively, for Debian, look at the
+          list of
+          <a href="https://packages.debian.org/search?keywords=haproxy"
+            >versions present in Debian</a
+          >
+          or the list
+          <a href="https://haproxy.debian.net/dists/"
+            >available repositories on this web site</a
+          >. For Ubuntu, look at the list of
+          <a href="https://packages.ubuntu.com/search?keywords=haproxy"
+            >versions present in Ubuntu</a
+          >
+          or the list of
+          <a href="https://launchpad.net/~vbernat"
+            >available PPAs on Launchpad</a
+          >.
+        </p>
+      </noscript>
       <p>
         The Debian HAProxy packaging team provides various versions of
         <a href="http://www.haproxy.org">HAProxy</a> packages for use on
