@@ -79,7 +79,8 @@
             >Alternative instructions</span
           >
           <span v-if="solution.version"
-            >for {{ solution.version }} release</span
+            >for {{ solution.version === 'latest' ? 'the' : 'a' }} {{
+            solution.version }} release</span
           >
         </h2>
 
