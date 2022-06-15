@@ -187,10 +187,10 @@
         <p v-if="solution.version == 'latest'">
           You will get the <em>latest</em> release of HAProxy {{
           selected.version }}
-          <span v-if="selected.release === 'ppa'"
+          <span v-if="solution.distribution === 'ppa'"
             >(and stick to this branch).</span
           >
-          <span v-else-if="selected.release === 'hdn'"
+          <span v-else-if="solution.distribution === 'hdn'"
             >(and stick to this branch).</span
           >
           <span v-else>(or a later version).</span>
