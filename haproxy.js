@@ -39,12 +39,12 @@ const matrix = {
     2.5: "ppa+",
     2.6: "ppa+",
   },
-  impish: { 2.2: "official-" },
   jammy: {
     2.4: "official-|ppa+",
     2.5: "ppa+",
     2.6: "ppa+",
   },
+  kinetic: { 2.4: "official-" },
   // END-MATRIX
 };
 
@@ -63,6 +63,7 @@ createApp({
       bionic: "Bionic (18.04 LTS)",
       focal: "Focal (20.04 LTS)",
       jammy: "Jammy (22.04 LTS)",
+      kinetic: "Kinetic (22.10)",
     },
   },
 
