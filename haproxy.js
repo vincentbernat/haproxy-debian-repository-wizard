@@ -19,7 +19,7 @@ const matrix = {
     2.5: "hdn+",
     2.6: "hdn+",
   },
-  sid: { 2.4: "official+", 2.6: "experimental+" },
+  sid: { 2.6: "official+" },
   // Ubuntu
   trusty: { 1.8: "ppa+" },
   xenial: { 1.8: "ppa+", "2.0": "ppa+" },
