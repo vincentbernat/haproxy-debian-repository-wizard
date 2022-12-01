@@ -19,7 +19,7 @@ const matrix = {
     2.5: "hdn+",
     2.6: "hdn+",
   },
-  sid: { 2.6: "official+" },
+  sid: { 2.6: "official+", 2.7: "experimental+" },
   // Ubuntu
   trusty: { 1.8: "ppa+" },
   xenial: { 1.8: "ppa+", "2.0": "ppa+" },
@@ -76,6 +76,7 @@ createApp({
     2.4: "2.4-stable (LTS)",
     2.5: "2.5-stable",
     2.6: "2.6-stable (LTS)",
+    2.7: "2.7-stable",
   },
 
   // Helper function to build Debian repository URL
