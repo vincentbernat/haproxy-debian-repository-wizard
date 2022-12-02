@@ -18,6 +18,7 @@ const matrix = {
     2.4: "backports+|hdn+",
     2.5: "hdn+",
     2.6: "hdn+",
+    2.7: "hdn+",
   },
   sid: { 2.6: "official+", 2.7: "experimental+" },
   // Ubuntu
@@ -43,6 +44,7 @@ const matrix = {
     2.4: "official-|ppa+",
     2.5: "ppa+",
     2.6: "ppa+",
+    2.7: "ppa+",
   },
   kinetic: { 2.4: "official-" },
   // END-MATRIX
