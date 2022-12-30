@@ -16,9 +16,9 @@ const matrix = {
   },
   bullseye: {
     2.2: "official-",
-    2.4: "backports+|hdn+",
+    2.4: "hdn+",
     2.5: "hdn+",
-    2.6: "hdn+",
+    2.6: "backports+|hdn+",
     2.7: "hdn+",
   },
   sid: { 2.6: "official+", 2.7: "experimental+" },
@@ -32,6 +32,7 @@ const matrix = {
     2.3: "ppa+",
     2.4: "ppa+",
     2.5: "ppa+",
+    2.6: "ppa+",
   },
   focal: {
     "2.0": "official-|ppa+",
@@ -40,6 +41,7 @@ const matrix = {
     2.4: "ppa+",
     2.5: "ppa+",
     2.6: "ppa+",
+    2.7: "ppa+",
   },
   jammy: {
     2.4: "official-|ppa+",
