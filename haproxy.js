@@ -3,9 +3,8 @@ import { createApp, reactive, nextTick } from "./petite-vue.es.js";
 const matrix = {
   // BEGIN-MATRIX
   // Debian
-  stretch: { 1.8: "hdn+", "2.0": "hdn+", 2.2: "hdn+" },
+  stretch: { "2.0": "hdn+", 2.2: "hdn+" },
   buster: {
-    1.8: "official-|hdn+",
     "2.0": "hdn+",
     2.2: "backports-|hdn+",
     2.3: "hdn+",
@@ -23,10 +22,8 @@ const matrix = {
   },
   sid: { 2.6: "official+", 2.7: "experimental+" },
   // Ubuntu
-  trusty: { 1.8: "ppa+" },
-  xenial: { 1.8: "ppa+", "2.0": "ppa+" },
+  xenial: { "2.0": "ppa+" },
   bionic: {
-    1.8: "official-|ppa+",
     "2.0": "ppa+",
     2.2: "ppa+",
     2.3: "ppa+",
@@ -63,7 +60,6 @@ createApp({
       sid: "Sid (unstable)",
     },
     Ubuntu: {
-      trusty: "Trusty (14.04 LTS)",
       xenial: "Xenial (16.04 LTS)",
       bionic: "Bionic (18.04 LTS)",
       focal: "Focal (20.04 LTS)",
@@ -74,7 +70,6 @@ createApp({
 
   // HAProxy versions
   versions: {
-    1.8: "1.8-stable (LTS)",
     "2.0": "2.0-stable (LTS)",
     2.2: "2.2-stable (LTS)",
     2.3: "2.3-stable",
