@@ -30,6 +30,7 @@ const matrix = {
     2.4: "ppa+",
     2.5: "ppa+",
     2.6: "ppa+",
+    2.7: "ppa+",
   },
   focal: {
     "2.0": "official-|ppa+",
