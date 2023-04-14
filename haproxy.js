@@ -6,7 +6,7 @@ const matrix = {
   stretch: { "2.0": "hdn+", 2.2: "hdn+" },
   buster: {
     "2.0": "hdn+",
-    2.2: "backports-|hdn+",
+    2.2: "hdn+",
     2.3: "hdn+",
     2.4: "hdn+",
     2.5: "hdn+",
