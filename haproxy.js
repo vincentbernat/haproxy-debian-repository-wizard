@@ -17,6 +17,7 @@ const matrix = {
     2.6: "backports+|hdn+",
     2.7: "hdn+",
   },
+  bookworm: { 2.6: "official-" },
   sid: { 2.6: "official+", 2.8: "experimental+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
@@ -50,6 +51,7 @@ createApp({
       stretch: "Stretch (9)",
       buster: "Buster (10)",
       bullseye: "Bullseye (11)",
+      bookworm: "Bookworm (12)",
       sid: "Sid (unstable)",
     },
     Ubuntu: {
