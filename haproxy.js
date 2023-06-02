@@ -17,7 +17,7 @@ const matrix = {
     2.6: "backports+|hdn+",
     2.7: "hdn+",
   },
-  sid: { 2.6: "official+", 2.7: "experimental+" },
+  sid: { 2.6: "official+", 2.8: "experimental+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
   bionic: {
@@ -68,6 +68,7 @@ createApp({
     2.4: "2.4-stable (LTS)",
     2.6: "2.6-stable (LTS)",
     2.7: "2.7-stable",
+    2.8: "2.8-stable (LTS)",
   },
 
   // Helper function to build Debian repository URL
