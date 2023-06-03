@@ -61,7 +61,7 @@ blockquote:before {
   height: 1em;
   width: 1em;
   overflow: hidden;
-  content: "«";
+  content: "“";
 }
 select {
   min-width: 2em;
