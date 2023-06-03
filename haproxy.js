@@ -16,8 +16,9 @@ const matrix = {
     2.4: "hdn+",
     2.6: "backports+|hdn+",
     2.7: "hdn+",
+    2.8: "hdn+",
   },
-  bookworm: { 2.6: "official-" },
+  bookworm: { 2.6: "official-", 2.8: "hdn+" },
   sid: { 2.6: "official+", 2.8: "experimental+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
@@ -34,13 +35,16 @@ const matrix = {
     2.4: "ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
+    2.8: "ppa+",
   },
   jammy: {
     2.4: "official-|ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
+    2.8: "ppa+",
   },
   kinetic: { 2.4: "official-" },
+  lunar: { 2.6: "official-" },
   // END-MATRIX
 };
 
@@ -60,6 +64,7 @@ createApp({
       focal: "Focal (20.04 LTS)",
       jammy: "Jammy (22.04 LTS)",
       kinetic: "Kinetic (22.10)",
+      lunar: "Lunar (23.04)",
     },
   },
 
