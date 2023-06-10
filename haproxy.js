@@ -14,7 +14,7 @@ const matrix = {
   bullseye: {
     2.2: "official-",
     2.4: "hdn+",
-    2.6: "backports+|hdn+",
+    2.6: "backports-|hdn+",
     2.7: "hdn+",
     2.8: "hdn+",
   },
