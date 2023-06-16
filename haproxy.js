@@ -18,7 +18,7 @@ const matrix = {
     2.7: "hdn+",
     2.8: "hdn+",
   },
-  bookworm: { 2.6: "official-|hdn+|backports+", 2.8: "hdn+" },
+  bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+" },
   sid: { 2.6: "official+", 2.8: "experimental+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
