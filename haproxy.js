@@ -18,8 +18,8 @@ const matrix = {
     2.7: "hdn+",
     2.8: "hdn+",
   },
-  bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+" },
-  sid: { 2.6: "official+", 2.8: "experimental+" },
+  bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+" },
+  sid: { 2.8: "official+", 2.9: "experimental+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
   bionic: {
@@ -36,15 +36,17 @@ const matrix = {
     2.6: "ppa+",
     2.7: "ppa+",
     2.8: "ppa+",
+    2.9: "ppa+",
   },
   jammy: {
     2.4: "official-|ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
     2.8: "ppa+",
+    2.9: "ppa+",
   },
-  kinetic: { 2.4: "official-" },
   lunar: { 2.6: "official-" },
+  mantic: { 2.6: "official-" },
   // END-MATRIX
 };
 
@@ -63,8 +65,8 @@ createApp({
       bionic: "Bionic (18.04 LTS)",
       focal: "Focal (20.04 LTS)",
       jammy: "Jammy (22.04 LTS)",
-      kinetic: "Kinetic (22.10)",
       lunar: "Lunar (23.04)",
+      mantic: "Mantic (23.10)",
     },
   },
 
@@ -76,6 +78,7 @@ createApp({
     2.6: "2.6-stable (LTS)",
     2.7: "2.7-stable",
     2.8: "2.8-stable (LTS)",
+    2.9: "2.9-stable",
   },
 
   // Helper function to build Debian repository URL
@@ -113,7 +116,7 @@ createApp({
   updateFromLocation() {
     const location = window.location.hash.slice(1).replace(/^\?+/, "");
     const { distribution, release, version } = Object.fromEntries(
-      location.split("&").map((v) => v.split("="))
+      location.split("&").map((v) => v.split("=")),
     );
     if (distribution && release && version) {
       this.selected.distribution = distribution;
