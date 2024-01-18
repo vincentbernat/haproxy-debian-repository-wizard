@@ -19,7 +19,7 @@ const matrix = {
     2.8: "hdn+",
   },
   bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+" },
-  sid: { 2.8: "official+", 2.9: "experimental+" },
+  sid: { 2.9: "official+" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
   bionic: {
