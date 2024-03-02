@@ -45,8 +45,8 @@ const matrix = {
     2.8: "ppa+",
     2.9: "ppa+",
   },
-  lunar: { 2.6: "official-" },
   mantic: { 2.6: "official-" },
+  noble: { 2.8: "official-" },
   // END-MATRIX
 };
 
@@ -65,8 +65,8 @@ createApp({
       bionic: "Bionic (18.04 LTS)",
       focal: "Focal (20.04 LTS)",
       jammy: "Jammy (22.04 LTS)",
-      lunar: "Lunar (23.04)",
       mantic: "Mantic (23.10)",
+      noble: "Noble (24.04 LTS)",
     },
   },
 
