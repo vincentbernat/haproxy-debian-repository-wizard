@@ -46,7 +46,7 @@ const matrix = {
     2.9: "ppa+",
   },
   mantic: { 2.6: "official-" },
-  noble: { 2.8: "official-" },
+  noble: { 2.8: "official-", 2.9: "ppa+" },
   // END-MATRIX
 };
 
