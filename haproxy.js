@@ -19,7 +19,7 @@ const matrix = {
     2.8: "hdn+",
   },
   bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+" },
-  sid: { 2.9: "official+" },
+  sid: { 2.9: "official+", "3.0": "experimental" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
   bionic: {
@@ -77,6 +77,7 @@ createApp({
     2.6: "2.6-stable (LTS)",
     2.8: "2.8-stable (LTS)",
     2.9: "2.9-stable",
+    "3.0": "3.0-stable (LTS)",
   },
 
   // Helper function to build Debian repository URL
