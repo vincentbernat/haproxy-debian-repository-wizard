@@ -18,7 +18,7 @@ const matrix = {
     2.7: "hdn+",
     2.8: "hdn+",
   },
-  bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+" },
+  bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+", "3.0": "hdn+" },
   sid: { 2.9: "official+", "3.0": "experimental" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
@@ -44,9 +44,10 @@ const matrix = {
     2.7: "ppa+",
     2.8: "ppa+",
     2.9: "ppa+",
+    "3.0": "ppa+",
   },
   mantic: { 2.6: "official-" },
-  noble: { 2.8: "official-", 2.9: "ppa+" },
+  noble: { 2.8: "official-", 2.9: "ppa+", "3.0": "ppa+" },
   // END-MATRIX
 };
 
