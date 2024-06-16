@@ -17,6 +17,7 @@ const matrix = {
     2.6: "backports-|hdn+",
     2.7: "hdn+",
     2.8: "hdn+",
+    "3.0": "hdn+",
   },
   bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+", "3.0": "hdn+" },
   sid: { 2.9: "official+", "3.0": "experimental" },
