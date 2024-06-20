@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -187,14 +187,19 @@
         <!-- Stable or latest? -->
         <p v-if="solution.version == 'latest'">
           You will get the <em>latest</em> release of HAProxy {{
-          selected.version }}
-          <span v-if="solution.distribution === 'ppa'"
-            >(and stick to this branch).</span
-          >
-          <span v-else-if="solution.distribution === 'hdn'"
-            >(and stick to this branch).</span
-          >
-          <span v-else>(or a later version).</span>
+          selected.version }}.
+          <span v-if="solution.distribution === 'ppa'">
+            You will automatically get newer versions for this major version.
+            Previous versions are not available.
+          </span>
+          <span v-else-if="solution.distribution === 'hdn'">
+            You will automatically get newer versions for this major version.
+            Previous versions are available if you need to downgrade.
+          </span>
+          <span v-else>
+            You will automatically get newer versions, either for the this major
+            version or for a later one.
+          </span>
         </p>
         <p v-if="solution.version == 'stable'">
           You will get a <em>stable</em> release of HAProxy {{ selected.version
