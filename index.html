@@ -190,7 +190,12 @@
           selected.version }}.
           <span v-if="solution.distribution === 'ppa'">
             You will automatically get updates for this major version. Previous
-            minor versions are not available.
+            minor versions are not available. To keep older versions, you need
+            to
+            <a
+              href="https://vincent.bernat.ch/en/blog/2014-local-apt-repositories#local-mirror-of-third-party-repositories"
+              >setup a local mirror</a
+            >.
           </span>
           <span v-else-if="solution.distribution === 'hdn'">
             You will automatically get updates for this major version. Previous
