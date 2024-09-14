@@ -38,6 +38,7 @@ const matrix = {
     2.7: "ppa+",
     2.8: "ppa+",
     2.9: "ppa+",
+    "3.0": "ppa+",
   },
   jammy: {
     2.4: "official-|ppa+",
