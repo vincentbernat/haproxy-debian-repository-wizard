@@ -20,7 +20,7 @@ const matrix = {
     "3.0": "hdn+",
   },
   bookworm: { 2.6: "official-|hdn+", 2.8: "hdn+", 2.9: "hdn+", "3.0": "hdn+" },
-  sid: { 3.0: "official+" },
+  sid: { "3.0": "official+", 3.1: "experimental" },
   // Ubuntu
   xenial: { "2.0": "ppa+" },
   bionic: {
@@ -49,7 +49,7 @@ const matrix = {
     "3.0": "ppa+",
   },
   mantic: { 2.6: "official-" },
-  noble: { 2.8: "official-", 2.9: "ppa+", "3.0": "ppa+" },
+  noble: { 2.8: "official-", 2.9: "ppa+", "3.0": "ppa+", "3.1": "ppa+" },
   // END-MATRIX
 };
 
@@ -81,6 +81,7 @@ createApp({
     2.8: "2.8-stable (LTS)",
     2.9: "2.9-stable",
     "3.0": "3.0-stable (LTS)",
+    3.1: "3.1-stable",
   },
 
   // Helper function to build Debian repository URL
