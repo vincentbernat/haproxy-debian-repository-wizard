@@ -18,6 +18,7 @@ const matrix = {
     2.7: "hdn+",
     2.8: "hdn+",
     "3.0": "hdn+",
+    3.1: "hdn+",
   },
   bookworm: {
     2.6: "official-|hdn+",
