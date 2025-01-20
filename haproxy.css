@@ -11,7 +11,7 @@ article > * {
 }
 article.js > *,
 article > h1,
-article > noscript {
+article > .noscript {
   display: inherit;
 }
 address {
