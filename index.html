@@ -164,16 +164,10 @@
         <!-- Debian haproxy.debian.net "PPA" -->
         <div v-if="solution.distribution == 'hdn'">
           <p>You need to enable a dedicated repository:</p>
-          <pre v-if="selected.distribution === 'jessie'">
-# curl https://haproxy.debian.net/bernat.debian.org.gpg \
-      > /etc/apt/trusted.gpg.d/haproxy.debian.net.gpg
-# echo deb http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
-      > /etc/apt/sources.list.d/haproxy.list</pre
-          >
-          <pre v-else>
-# curl https://haproxy.debian.net/bernat.debian.org.gpg \
-      | gpg --dearmor > /usr/share/keyrings/haproxy.debian.net.gpg
-# echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
+          <pre>
+# curl https://haproxy.debian.net/haproxy-archive-keyring.gpg \
+      > /usr/share/keyrings/haproxy-archive-keyring.gpg
+# echo deb "[signed-by=/usr/share/keyrings/haproxy-archive-keyring.gpg]" \
       http://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
       > /etc/apt/sources.list.d/haproxy.list</pre
           >
