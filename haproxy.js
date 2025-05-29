@@ -78,7 +78,7 @@ createApp({
       jammy: "Jammy (22.04 LTS)",
       noble: "Noble (24.04 LTS)",
       oracular: "Oracular (24.10)",
-      plucky: "Plucky (25.04 LTS)",
+      plucky: "Plucky (25.04)",
     },
   },
 
