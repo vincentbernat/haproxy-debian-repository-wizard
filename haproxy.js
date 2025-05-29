@@ -19,6 +19,7 @@ const matrix = {
     2.9: "hdn+",
     "3.0": "hdn+",
     3.1: "hdn+",
+    3.2: "hdn+",
   },
   sid: { "3.0": "official+", 3.2: "experimental" },
   // Ubuntu
