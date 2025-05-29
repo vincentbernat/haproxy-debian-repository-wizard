@@ -6,6 +6,7 @@ const matrix = {
   bullseye: {
     2.2: "official-",
     2.4: "hdn+",
+    2.5: "hdn+",
     2.6: "backports-|hdn+",
     2.7: "hdn+",
     2.8: "hdn+",
@@ -21,18 +22,26 @@ const matrix = {
   },
   sid: { "3.0": "official+", 3.1: "experimental" },
   // Ubuntu
-  xenial: { "2.0": "ppa+" },
+  xenial: { 1.8: "ppa+", "2.0": "ppa+" },
   bionic: {
+    1.8: "official-|ppa+",
+    1.9: "ppa+",
     "2.0": "ppa+",
+    2.1: "ppa+",
     2.2: "ppa+",
+    2.3: "ppa+",
     2.4: "ppa+",
+    2.5: "ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
   },
   focal: {
     "2.0": "official-|ppa+",
+    2.1: "ppa+",
     2.2: "ppa+",
+    2.3: "ppa+",
     2.4: "ppa+",
+    2.5: "ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
     2.8: "ppa+",
@@ -41,6 +50,7 @@ const matrix = {
   },
   jammy: {
     2.4: "official-|ppa+",
+    2.5: "ppa+",
     2.6: "ppa+",
     2.7: "ppa+",
     2.8: "ppa+",
