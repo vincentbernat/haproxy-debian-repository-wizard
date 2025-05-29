@@ -21,6 +21,7 @@ const matrix = {
     3.1: "hdn+",
     3.2: "hdn+",
   },
+  trixie: { "3.0": "official-" },
   sid: { "3.0": "official+", 3.2: "experimental" },
   // Ubuntu
   xenial: { 1.8: "ppa+", "2.0": "ppa+" },
@@ -76,6 +77,7 @@ createApp({
     Debian: {
       bullseye: "Bullseye (11)",
       bookworm: "Bookworm (12)",
+      trixie: "Trixie (13)",
       sid: "Sid (unstable)",
     },
     Ubuntu: {
