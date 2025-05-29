@@ -74,13 +74,12 @@ createApp({
 
   // HAProxy versions
   versions: {
-    2.2: "2.2-stable (LTS)",
     2.4: "2.4-stable (LTS)",
     2.6: "2.6-stable (LTS)",
     2.8: "2.8-stable (LTS)",
-    2.9: "2.9-stable",
     "3.0": "3.0-stable (LTS)",
     3.1: "3.1-stable",
+    3.2: "3.2-stable (LTS)",
   },
 
   // Helper function to build Debian repository URL
