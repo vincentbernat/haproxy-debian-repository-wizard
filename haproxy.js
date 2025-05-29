@@ -57,7 +57,13 @@ const matrix = {
     2.9: "ppa+",
     "3.0": "ppa+",
   },
-  noble: { 2.8: "official-", 2.9: "ppa+", "3.0": "ppa+", 3.1: "ppa+" },
+  noble: {
+    2.8: "official-",
+    2.9: "ppa+",
+    "3.0": "ppa+",
+    3.1: "ppa+",
+    3.2: "ppa+",
+  },
   oracular: { 2.9: "official-" },
   plucky: { "3.0": "official-" },
   // END-MATRIX
