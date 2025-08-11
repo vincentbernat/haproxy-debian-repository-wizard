@@ -66,7 +66,6 @@ const matrix = {
     3.1: "ppa+",
     3.2: "ppa+",
   },
-  oracular: { 2.9: "official-" },
   plucky: { "3.0": "official-" },
   // END-MATRIX
 };
@@ -86,7 +85,6 @@ createApp({
       focal: "Focal (20.04 LTS)",
       jammy: "Jammy (22.04 LTS)",
       noble: "Noble (24.04 LTS)",
-      oracular: "Oracular (24.10)",
       plucky: "Plucky (25.04)",
     },
   },
