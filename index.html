@@ -166,8 +166,8 @@
           <p>You need to enable a dedicated repository:</p>
           <pre>
 # curl https://haproxy.debian.net/haproxy-archive-keyring.gpg \
-      --create-dirs --output /apt/apt/keyrings/haproxy-archive-keyring.gpg
-# echo deb "[signed-by=/apt/apt/keyrings/haproxy-archive-keyring.gpg]" \
+      --create-dirs --output /etc/apt/keyrings/haproxy-archive-keyring.gpg
+# echo deb "[signed-by=/etc/apt/keyrings/haproxy-archive-keyring.gpg]" \
       https://haproxy.debian.net {{ selected.release }}-backports-{{ selected.version }} main \
       > /etc/apt/sources.list.d/haproxy.list</pre
           >
