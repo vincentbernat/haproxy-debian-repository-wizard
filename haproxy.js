@@ -7,7 +7,7 @@ const matrix = {
         2.2: "official-",
         2.4: "hdn+",
         2.5: "hdn+",
-        2.6: "backports-|hdn+",
+        2.6: "hdn+",
         2.7: "hdn+",
         2.8: "hdn+",
         "3.0": "hdn+",
