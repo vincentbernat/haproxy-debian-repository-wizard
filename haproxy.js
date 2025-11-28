@@ -67,6 +67,7 @@ const matrix = {
         "3.2": "ppa+",
     },
     plucky: { "3.0": "official-" },
+    questing: { "3.0": "official-" },
     // END-MATRIX
 };
 
@@ -86,6 +87,7 @@ createApp({
             jammy: "Jammy (22.04 LTS)",
             noble: "Noble (24.04 LTS)",
             plucky: "Plucky (25.04)",
+            questing: "Questing (25.10)",
         },
     },
 
