@@ -22,7 +22,7 @@ const matrix = {
         3.2: "hdn+",
     },
     trixie: { "3.0": "official-", "3.2": "hdn+" },
-    sid: { "3.0": "official+", 3.2: "experimental" },
+    sid: { "3.2": "official+" },
     // Ubuntu
     xenial: { 1.8: "ppa+", "2.0": "ppa+" },
     bionic: {
@@ -97,6 +97,7 @@ createApp({
         "3.0": "3.0-stable (LTS)",
         3.1: "3.1-stable",
         3.2: "3.2-stable (LTS)",
+        3.3: "3.3-stable",
     },
 
     // Helper function to build Debian repository URL
