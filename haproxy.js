@@ -21,7 +21,7 @@ const matrix = {
         "3.1": "hdn+",
         "3.2": "hdn+",
     },
-    trixie: { "3.0": "official-", "3.2": "hdn+" },
+    trixie: { "3.0": "official-", "3.2": "hdn+", "3.3": "hdn+" },
     sid: { "3.2": "official+", "3.3": "experimental" },
     // Ubuntu
     xenial: { "1.8": "ppa+", "2.0": "ppa+" },
@@ -65,6 +65,7 @@ const matrix = {
         "3.0": "ppa+",
         "3.1": "ppa+",
         "3.2": "ppa+",
+        "3.3": "ppa+",
     },
     plucky: { "3.0": "official-" },
     questing: { "3.0": "official-" },
