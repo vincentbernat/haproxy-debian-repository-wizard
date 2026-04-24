@@ -24,7 +24,6 @@ const matrix = {
     trixie: { "3.0": "official-", "3.2": "hdn+", "3.3": "hdn+" },
     sid: { "3.2": "official+", "3.3": "experimental" },
     // Ubuntu
-    xenial: { "1.8": "ppa+", "2.0": "ppa+" },
     bionic: {
         "1.8": "official-|ppa+",
         "1.9": "ppa+",
@@ -67,7 +66,6 @@ const matrix = {
         "3.2": "ppa+",
         "3.3": "ppa+",
     },
-    plucky: { "3.0": "official-" },
     questing: { "3.0": "official-" },
     // END-MATRIX
 };
@@ -82,12 +80,10 @@ createApp({
             sid: "Sid (unstable)",
         },
         Ubuntu: {
-            xenial: "Xenial (16.04 LTS)",
             bionic: "Bionic (18.04 LTS)",
             focal: "Focal (20.04 LTS)",
             jammy: "Jammy (22.04 LTS)",
             noble: "Noble (24.04 LTS)",
-            plucky: "Plucky (25.04)",
             questing: "Questing (25.10)",
         },
     },
