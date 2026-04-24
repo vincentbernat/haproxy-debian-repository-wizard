@@ -67,6 +67,7 @@ const matrix = {
         "3.3": "ppa+",
     },
     questing: { "3.0": "official-" },
+    resolute: { "3.2": "official-" },
     // END-MATRIX
 };
 
@@ -85,6 +86,7 @@ createApp({
             jammy: "Jammy (22.04 LTS)",
             noble: "Noble (24.04 LTS)",
             questing: "Questing (25.10)",
+            resolute: "Resolute (26.04 LTS)",
         },
     },
 
