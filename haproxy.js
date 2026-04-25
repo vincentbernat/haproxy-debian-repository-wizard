@@ -67,7 +67,7 @@ const matrix = {
         "3.3": "ppa+",
     },
     questing: { "3.0": "official-" },
-    resolute: { "3.2": "official-" },
+    resolute: { "3.2": "official-|ppa+", "3.3": "ppa+" },
     // END-MATRIX
 };
 
