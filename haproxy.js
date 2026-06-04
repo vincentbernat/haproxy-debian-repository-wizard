@@ -21,8 +21,8 @@ const matrix = {
         "3.1": "hdn+",
         "3.2": "hdn+",
     },
-    trixie: { "3.0": "official-", "3.2": "hdn+", "3.3": "hdn+" },
-    sid: { "3.2": "official+", "3.3": "experimental" },
+    trixie: { "3.0": "official-", "3.2": "hdn+", "3.3": "hdn+", "3.4": "hdn+" },
+    sid: { "3.2": "official+", "3.4": "experimental" },
     // Ubuntu
     bionic: {
         "1.8": "official-|ppa+",
@@ -67,7 +67,7 @@ const matrix = {
         "3.3": "ppa+",
     },
     questing: { "3.0": "official-" },
-    resolute: { "3.2": "official-|ppa+", "3.3": "ppa+" },
+    resolute: { "3.2": "official-|ppa+", "3.3": "ppa+", "3.4": "ppa+" },
     // END-MATRIX
 };
 
