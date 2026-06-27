@@ -92,7 +92,6 @@ createApp({
 
     // HAProxy versions
     versions: {
-        2.4: "2.4-stable (LTS)",
         2.6: "2.6-stable (LTS)",
         2.8: "2.8-stable (LTS)",
         "3.0": "3.0-stable (LTS)",
