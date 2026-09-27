@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+
+"""Update supported distributions and HAProxy versions in www/haproxy.js
+using data from endoflife.date.
+
+An HAProxy version is supported until its end of life. A Debian release is
+supported until the end of LTS (ELTS is not included). An Ubuntu LTS release is
+supported until the end of ESM. The main reason is that Debian backport
+repository gets archived after end of LTS, while Ubuntu repository is still
+available.
+
+"""
+
+import argparse
+import datetime
+import json
+import os
+import re
+import urllib.request
+from typing import Any
+
+API = "https://endoflife.date/api/v1/products/{}"
+JS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "haproxy.js")
+
+Release = dict[str, Any]
+
+
+def releases(product: str, eol: str = "isEol") -> list[Release]:
+    """Return released versions of a product that are not end of life yet.
+
+    The eol argument is the endoflife.date field used to check the end of
+    support. When this field is empty, isEol is used instead."""
+    with urllib.request.urlopen(API.format(product), timeout=30) as response:
+        data: dict[str, Any] = json.load(response)
+    today = datetime.date.today().isoformat()
+    return [
+        r
+        for r in data["result"]["releases"]
+        if not (r.get(eol) if r.get(eol) is not None else r["isEol"])
+        and (r["releaseDate"] or "9999") <= today
+    ]
+
+
+def sort_key(release: Release) -> tuple[int, ...]:
+    """Return a key to sort releases by version number."""
+    return tuple(int(x) for x in release["name"].split("."))
+
+
+def debian() -> dict[str, str]:
+    """Return supported Debian releases, with sid at the end."""
+    result: dict[str, str] = {}
+    for r in sorted(releases("debian"), key=sort_key):
+        codename = r["codename"].split()[0]
+        result[codename.lower()] = f"{codename} ({r['name']})"
+    result["sid"] = "Sid (unstable)"
+    return result
+
+
+def ubuntu() -> dict[str, str]:
+    """Return supported Ubuntu releases."""
+    result: dict[str, str] = {}
+    for r in sorted(releases("ubuntu", eol="isEoes"), key=sort_key):
+        codename = r["codename"].split()[0]
+        lts = " LTS" if r["isLts"] else ""
+        result[codename.lower()] = f"{codename} ({r['name']}{lts})"
+    return result
+
+
+def haproxy() -> dict[str, str]:
+    """Return supported HAProxy versions."""
+    result: dict[str, str] = {}
+    for r in sorted(releases("haproxy"), key=sort_key):
+        label = f"{r['name']}-stable"
+        if r["isLts"]:
+            label += " (LTS)"
+        result[r["name"]] = label
+    return result
+
+
+def js_key(key: str) -> str:
+    """Format a key for a JavaScript object, with quotes only when needed."""
+    # Numbers like 3.0 would become 3 when not quoted
+    if re.fullmatch(r"[a-z_][a-z0-9_]*", key) or re.fullmatch(
+        r"[0-9]+\.[0-9]*[1-9]", key
+    ):
+        return key
+    return json.dumps(key)
+
+
+def js_object(entries: dict[str, str], indent: int) -> str:
+    """Format entries as the body of a JavaScript object."""
+    pad = " " * indent
+    lines = [f"{pad}{js_key(k)}: {json.dumps(v)}," for k, v in entries.items()]
+    return "\n".join(lines)
+
+
+def replace_block(content: str, name: str, entries: dict[str, str], indent: int) -> str:
+    """Replace the body of the named JavaScript object with entries."""
+    pad = " " * indent
+    pattern = re.compile(
+        rf"^({re.escape(pad)}{name}: \{{\n)(.*?)(^{re.escape(pad)}\}},?\n)",
+        re.MULTILINE | re.DOTALL,
+    )
+    new, count = pattern.subn(
+        lambda m: m.group(1) + js_object(entries, indent + 4) + "\n" + m.group(3),
+        content,
+        count=1,
+    )
+    if count != 1:
+        raise RuntimeError(f"cannot find {name} block in {JS}")
+    return new
+
+
+def current_keys(content: str, name: str, indent: int) -> list[str]:
+    """Return the keys of the named JavaScript object."""
+    pad = " " * indent
+    m = re.search(
+        rf"^{re.escape(pad)}{name}: \{{\n(.*?)^{re.escape(pad)}\}}",
+        content,
+        re.MULTILINE | re.DOTALL,
+    )
+    return re.findall(r'^\s*"?([^":\s]+)"?:', m.group(1), re.MULTILINE) if m else []
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        help="show changes without writing them",
+    )
+    args = parser.parse_args()
+
+    with open(JS) as f:
+        content = f.read()
+    blocks = [
+        ("Debian", debian(), 8),
+        ("Ubuntu", ubuntu(), 8),
+        ("versions", haproxy(), 4),
+    ]
+    new = content
+    for name, entries, indent in blocks:
+        old = current_keys(content, name, indent)
+        for key in entries:
+            if key not in old:
+                print(f"{name}: add {key}")
+        for key in old:
+            if key not in entries:
+                print(f"{name}: remove {key}")
+        new = replace_block(new, name, entries, indent)
+    if new != content and args.dry_run:
+        print(f"{JS} not updated (dry run)")
+    elif new != content:
+        with open(JS, "w") as f:
+            f.write(new)
+        print(f"{JS} updated")
+    else:
+        print(f"{JS} is up to date")
+
+
+if __name__ == "__main__":
+    main()
