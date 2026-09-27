@@ -3,16 +3,6 @@ import { createApp, reactive, nextTick } from "./petite-vue.es.js";
 const matrix = {
     // BEGIN-MATRIX
     // Debian
-    bullseye: {
-        "2.2": "official-",
-        "2.4": "hdn+",
-        "2.5": "hdn+",
-        "2.6": "hdn+",
-        "2.7": "hdn+",
-        "2.8": "hdn+",
-        "3.0": "hdn+",
-        "3.1": "hdn+",
-    },
     bookworm: {
         "2.6": "official-|hdn+",
         "2.8": "hdn+",
@@ -74,7 +64,6 @@ createApp({
     // Supported distributions
     distributions: {
         Debian: {
-            bullseye: "Bullseye (11)",
             bookworm: "Bookworm (12)",
             trixie: "Trixie (13)",
             sid: "Sid (unstable)",
