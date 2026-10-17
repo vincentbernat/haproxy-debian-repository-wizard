@@ -57,6 +57,7 @@ const matrix = {
         "3.3": "ppa+",
     },
     resolute: { "3.2": "official-|ppa+", "3.3": "ppa+", "3.4": "ppa+" },
+    stonking: { "3.4": "official-" },
     // END-MATRIX
 };
 
@@ -74,6 +75,7 @@ createApp({
             jammy: "Jammy (22.04 LTS)",
             noble: "Noble (24.04 LTS)",
             resolute: "Resolute (26.04 LTS)",
+            stonking: "Stonking (26.10)",
         },
     },
 
